@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 	time_now = Time.get_unix_time_from_system()
 	var time_elapsed = time_now - time_start
 	connection(time_elapsed)
+	
+	connected = get_node("/root/Static").connected
 
 var connected = false
 func connection(time):
