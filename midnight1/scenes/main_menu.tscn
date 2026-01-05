@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3fwflgrygwfn"]
+
+[ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="1_l6cm7"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -296.0
+offset_top = -176.0
+offset_right = 1528.0
+offset_bottom = 1176.0
+texture = ExtResource("1_l6cm7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -285.5
+offset_right = 285.5
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Main  Menu"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 384.0
+offset_top = 384.0
+offset_right = 768.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 30
+item_count = 1
+item_0/text = "Person"
