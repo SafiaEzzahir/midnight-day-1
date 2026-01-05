@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://ertyb83yf2cp"]
+
+[ext_resource type="Script" uid="uid://cw4anocucjuuk" path="res://scenes/ClockMinigame.gd" id="1_derwk"]
+[ext_resource type="Texture2D" uid="uid://m2vn7tbyniyw" path="res://textures/rTjKp5Kec.jpg" id="2_6csmt"]
+[ext_resource type="Texture2D" uid="uid://c1vrphvqlnted" path="res://icon.svg" id="3_yhoar"]
+
+[node name="ClockMinigame" type="Node2D"]
+script = ExtResource("1_derwk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RTjKp5Kec" type="Sprite2D" parent="."]
+position = Vector2(4.999999, -1)
+scale = Vector2(0.27666667, 0.27666667)
+texture = ExtResource("2_6csmt")
+
+[node name="BigHandPivot" type="Node2D" parent="."]
+position = Vector2(-1.0000004, 1.9999924)
+scale = Vector2(0.140625, 1.7226563)
+
+[node name="Sprite2D" type="Sprite2D" parent="BigHandPivot"]
+position = Vector2(7.1111174, -65.45124)
+scale = Vector2(1.0000001, 1)
+texture = ExtResource("3_yhoar")
+
+[node name="LittleHandPivot" type="Node2D" parent="."]
+position = Vector2(2, -7.6293945e-06)
+scale = Vector2(0.140625, 1.7226563)
+
+[node name="Sprite2D" type="Sprite2D" parent="LittleHandPivot"]
+position = Vector2(-21.333336, -33.08843)
+scale = Vector2(1.3951755, 0.51855415)
+texture = ExtResource("3_yhoar")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -304.0
+offset_right = 38.0
+offset_bottom = -262.0
+theme_override_font_sizes/font_size = 30
+text = "10:35"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = -357.0
+offset_top = -167.0
+offset_right = 330.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "correct"
+
+[node name="Timer" type="Timer" parent="Label2"]
+wait_time = 0.2
+
+[connection signal="timeout" from="Label2/Timer" to="." method="_on_timer_timeout"]
