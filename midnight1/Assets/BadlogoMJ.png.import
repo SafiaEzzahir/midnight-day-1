@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc5kgnu7bql5u"
-path="res://.godot/imported/tick_image.png-c1c4abe85db2d0860b9e6c5c1ad8a4d3.ctex"
+uid="uid://b0lnuqlli0p2r"
+path="res://.godot/imported/BadlogoMJ.png-c745864222cb6e5cbc267d54b740c35b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/tick_image.png"
-dest_files=["res://.godot/imported/tick_image.png-c1c4abe85db2d0860b9e6c5c1ad8a4d3.ctex"]
+source_file="res://Assets/BadlogoMJ.png"
+dest_files=["res://.godot/imported/BadlogoMJ.png-c745864222cb6e5cbc267d54b740c35b.ctex"]
 
 [params]
 

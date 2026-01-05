@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4l6uovpmqytb"]
+
+[ext_resource type="Texture2D" uid="uid://db6drncpxjxf" path="res://Assets/letterh.jpg" id="1_1fr6n"]
+[ext_resource type="PackedScene" uid="uid://c6706tcgw2gki" path="res://Scenes/Letters/Checkpoint.tscn" id="2_uynwc"]
+
+[sub_resource type="GDScript" id="GDScript_1fr6n"]
+script/source = "extends Area2D
+
+var checkpoints = 0
+const target = 5
+
+var t1 = false
+var t2 = false
+var t3 = false
+var t4 = false
+var t5 = false
+
+func _on_checkpoint_1_area_entered(_area: Area2D) -> void:
+	if not t1:
+		checkpoints+=1
+		t1 = true
+
+func _on_checkpoint_2_area_entered(_area: Area2D) -> void:
+	if not t2:
+		checkpoints+=1
+		t2 = true
+
+func _on_checkpoint_3_area_entered(_area: Area2D) -> void:
+	if not t3:
+		checkpoints+=1
+		t3 = true
+
+func _on_checkpoint_4_area_entered(_area: Area2D) -> void:
+	if not t4:
+		checkpoints+=1
+		t4 = true
+
+func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
+	if not t5:
+		checkpoints+=1
+		t5 = true
+
+func _process(_delta: float) -> void:
+	if checkpoints == target:
+		print(\"success!!\")
+"
+
+[node name="LetterH" type="Area2D"]
+script = SubResource("GDScript_1fr6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324.00003)
+scale = Vector2(2.2714286, 2.408088)
+texture = ExtResource("1_1fr6n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6.9777527, -6.833435)
+scale = Vector2(1.0029297, 1.0057844)
+polygon = PackedVector2Array(379.40375, 527.01624, 500.40375, 527.01624, 498.40375, 356.0162, 643.40375, 353.0162, 643.40375, 526.01624, 762.40375, 526.01624, 763.40375, 84.016205, 646.40375, 84.016205, 643.40375, 244.0162, 499.40375, 244.0162, 495.40375, 86.016205, 382.40375, 85.016205)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource("2_uynwc")]
+position = Vector2(433, 104)
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource("2_uynwc")]
+position = Vector2(437, 299)
+
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource("2_uynwc")]
+position = Vector2(701, 297)
+
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource("2_uynwc")]
+position = Vector2(700, 104)
+
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("2_uynwc")]
+position = Vector2(708, 487)
+
+[connection signal="area_entered" from="Checkpoints/Checkpoint1" to="." method="_on_checkpoint_1_area_entered"]
+[connection signal="area_entered" from="Checkpoints/Checkpoint2" to="." method="_on_checkpoint_2_area_entered"]
+[connection signal="area_entered" from="Checkpoints/Checkpoint3" to="." method="_on_checkpoint_3_area_entered"]
+[connection signal="area_entered" from="Checkpoints/Checkpoint4" to="." method="_on_checkpoint_4_area_entered"]
+[connection signal="area_entered" from="Checkpoints/Checkpoint5" to="." method="_on_checkpoint_5_area_entered"]
