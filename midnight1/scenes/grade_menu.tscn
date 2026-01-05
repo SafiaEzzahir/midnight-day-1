@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ukusnp1idwc"]
+
+[ext_resource type="Script" uid="uid://cxi4bnucs1c6k" path="res://scenes/grade_menu.gd" id="1_174ub"]
+[ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="1_ogrh0"]
+
+[node name="GradeMenu" type="Node2D"]
+script = ExtResource("1_174ub")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -224.0
+offset_top = -128.0
+offset_right = 1272.0
+offset_bottom = 984.0
+texture = ExtResource("1_ogrh0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 15.0
+offset_right = 120.0
+offset_bottom = 111.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 70
+text = "Grades"
+
+[node name="ItemList" type="ItemList" parent="."]
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 896.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 30
+item_count = 4
+item_0/text = "Player1: "
+item_1/text = "Player2:"
+item_2/text = "Player3:"
+item_3/text = "Player4:"
