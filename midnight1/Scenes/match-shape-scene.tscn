@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmahy6vqsrgnp"]
+
+[ext_resource type="Script" uid="uid://b40pl1mfi6x7h" path="res://Scripts/match-shape-scene.gd" id="1_tigrs"]
+[ext_resource type="Script" uid="uid://h0iuckepll20" path="res://Scenes/drawer.gd" id="2_er7w1"]
+[ext_resource type="Texture2D" uid="uid://c1vrphvqlnted" path="res://icon.svg" id="2_l0t2w"]
+[ext_resource type="PackedScene" uid="uid://d4l6uovpmqytb" path="res://Scenes/Letters/LetterH.tscn" id="2_ras2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er7w1"]
+size = Vector2(52, 49)
+
+[node name="MatchShapeScene" type="Node2D"]
+script = ExtResource("1_tigrs")
+
+[node name="LetterH" parent="." instance=ExtResource("2_ras2p")]
+position = Vector2(-7.999939, 28.00003)
+scale = Vector2(1, 0.943)
+
+[node name="Drawer" type="Area2D" parent="."]
+z_index = 1
+position = Vector2(423, 472)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("2_er7w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Drawer"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_l0t2w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawer"]
+position = Vector2(-1, 0)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_er7w1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_right = 1161.0
+offset_bottom = 657.0
+expand_mode = 1
+
+[connection signal="area_exited" from="LetterH" to="." method="_on_letter_h_area_exited"]

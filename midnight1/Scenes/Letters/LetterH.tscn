@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4l6uovpmqytb"]
+
+[ext_resource type="Texture2D" uid="uid://db6drncpxjxf" path="res://Assets/letterh.jpg" id="1_1fr6n"]
+
+[sub_resource type="GDScript" id="GDScript_1fr6n"]
+script/source = "extends Area2D
+"
+
+[node name="LetterH" type="Area2D"]
+script = SubResource("GDScript_1fr6n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 324.00003)
+scale = Vector2(2.2714286, 2.408088)
+texture = ExtResource("1_1fr6n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-6.9777527, -6.833435)
+scale = Vector2(1.0029297, 1.0057844)
+polygon = PackedVector2Array(379.40375, 527.01624, 500.40375, 527.01624, 498.40375, 356.0162, 643.40375, 353.0162, 643.40375, 526.01624, 762.40375, 526.01624, 763.40375, 84.016205, 646.40375, 84.016205, 643.40375, 244.0162, 499.40375, 244.0162, 495.40375, 86.016205, 382.40375, 85.016205)
