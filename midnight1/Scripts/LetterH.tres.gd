@@ -1,0 +1,39 @@
+extends Area2D
+
+var checkpoints = 0
+const target = 5
+
+var t1 = false
+var t2 = false
+var t3 = false
+var t4 = false
+var t5 = false
+
+func _on_checkpoint_1_area_entered(_area: Area2D) -> void:
+	if not t1:
+		checkpoints+=1
+		t1 = true
+
+func _on_checkpoint_2_area_entered(_area: Area2D) -> void:
+	if not t2:
+		checkpoints+=1
+		t2 = true
+
+func _on_checkpoint_3_area_entered(_area: Area2D) -> void:
+	if not t3:
+		checkpoints+=1
+		t3 = true
+
+func _on_checkpoint_4_area_entered(_area: Area2D) -> void:
+	if not t4:
+		checkpoints+=1
+		t4 = true
+
+func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
+	if not t5:
+		checkpoints+=1
+		t5 = true
+
+func _process(_delta: float) -> void:
+	if checkpoints == target:
+		print("success!!")
