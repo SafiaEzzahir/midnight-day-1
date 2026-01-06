@@ -13,36 +13,31 @@ func _on_checkpoint_1_area_entered(_area: Area2D) -> void:
 	if not t1:
 		checkpoints+=1
 		t1 = true
-		print(checkpoints)
-		$Label.text = str(int(checkpoints/target)) + "% done"
+		$Label.text = str(int(float(checkpoints)/float(target)*100)) + "% done"
 
 func _on_checkpoint_2_area_entered(_area: Area2D) -> void:
 	if not t2:
 		checkpoints+=1
 		t2 = true
-		@warning_ignore("integer_division")
-		$Label.text = str(int(checkpoints/target)) + "% done"
+		$Label.text = str(int(float(checkpoints)/float(target)*100)) + "% done"
 
 func _on_checkpoint_3_area_entered(_area: Area2D) -> void:
 	if not t3:
 		checkpoints+=1
 		t3 = true
-		@warning_ignore("integer_division")
-		$Label.text = str(int(checkpoints/target)) + "% done"
+		$Label.text = str(int(float(checkpoints)/float(target)*100)) + "% done"
 
 func _on_checkpoint_4_area_entered(_area: Area2D) -> void:
 	if not t4:
 		checkpoints+=1
 		t4 = true
-		@warning_ignore("integer_division")
-		$Label.text = str(int(checkpoints/target)) + "% done"
+		$Label.text = str(int(float(checkpoints)/float(target)*100)) + "% done"
 
 func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
 	if not t5:
 		checkpoints+=1
 		t5 = true
-		@warning_ignore("integer_division")
-		$Label.text = str(int(checkpoints/target)) + "% done"
+		$Label.text = str(int(float(checkpoints)/float(target)*100)) + "% done"
 
 func _process(_delta: float) -> void:
 	if checkpoints == target:
