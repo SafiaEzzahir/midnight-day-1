@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc5kgnu7bql5u"
-path="res://.godot/imported/tick_image.png-c1c4abe85db2d0860b9e6c5c1ad8a4d3.ctex"
+uid="uid://bqi5axandn8fj"
+path="res://.godot/imported/writingicon.png-f1a27f64598ccc08d00774cbd10055a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/tick_image.png"
-dest_files=["res://.godot/imported/tick_image.png-c1c4abe85db2d0860b9e6c5c1ad8a4d3.ctex"]
+source_file="res://Assets/writingicon.png"
+dest_files=["res://.godot/imported/writingicon.png-f1a27f64598ccc08d00774cbd10055a1.ctex"]
 
 [params]
 
