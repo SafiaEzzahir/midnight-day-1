@@ -5,18 +5,25 @@ var h = preload("res://Scenes/Letters/LetterH.tscn")
 #preload other scenes
 
 var letterscene = null
+var l = []
 
+signal reset
 
+var startpos = null
 #connect win/lose signal to trail to change colour
 
 func _ready():
-	pass
+	startpos = $Drawer.position
 
 func _on_letter_h_area_exited(_area: Area2D) -> void:
 	_fail_and_reset()
 
 func _fail_and_reset():
-	$TextureRect.texture = load("res://Assets/BadlogoMJ.png")
+	for trail in l:
+		remove_child(trail)
+	l = []
+	$Drawer.position = startpos
+	reset.emit()
 
 func _input(_event):
 	if Input.is_action_pressed("up"):
@@ -37,21 +44,25 @@ func set_up_trail():
 	trail.position.y = $Drawer.position.y + 15
 	trail.position.x = $Drawer.position.x
 	add_child(trail)
+	l.append(trail)
 
 func set_down_trail():
 	var trail = upanddown.instantiate()
 	trail.position.y = $Drawer.position.y - 15
 	trail.position.x = $Drawer.position.x
 	add_child(trail)
+	l.append(trail)
 
 func set_left_trail():
 	var trail = upanddown.instantiate()
 	trail.position.y = $Drawer.position.y
 	trail.position.x = $Drawer.position.x + 15
 	add_child(trail)
+	l.append(trail)
 	
 func set_right_trail():
 	var trail = upanddown.instantiate()
 	trail.position.y = $Drawer.position.y
 	trail.position.x = $Drawer.position.x - 15
 	add_child(trail)
+	l.append(trail)

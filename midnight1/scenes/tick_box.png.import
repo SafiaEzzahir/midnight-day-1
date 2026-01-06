@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqsy8gwrl8b3b"
-path="res://.godot/imported/tick_box.png-c17a24f1260bda6a5500f02231f394ba.ctex"
+path="res://.godot/imported/tick_box.png-a567ec5240f42380e75975b9950d4523.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/tick_box.png"
-dest_files=["res://.godot/imported/tick_box.png-c17a24f1260bda6a5500f02231f394ba.ctex"]
+source_file="res://Scenes/tick_box.png"
+dest_files=["res://.godot/imported/tick_box.png-a567ec5240f42380e75975b9950d4523.ctex"]
 
 [params]
 

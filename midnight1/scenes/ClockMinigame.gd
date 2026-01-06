@@ -27,8 +27,7 @@ func _input(event: InputEvent) -> void:
 	if(Input.is_action_just_released("mouse_down")):
 		if(correct_time - 2 < total_time && total_time < correct_time + 2):
 			correct = true
-			$Label2/Timer.start()
-			$Label2.show()
+			get_tree().change_scene_to_file("res://scenes/grade_up.tscn")
 
 func update_clock(time: float):
 	var minute_hand = roundi(time) % 60
@@ -37,15 +36,3 @@ func update_clock(time: float):
 	$BigHandPivot.rotation_degrees = (minute_hand as float / 60) * 360
 	$LittleHandPivot.rotation_degrees = (hour_hand / 12) * 360
 	
-
-var count = 0 
-var white_or_black = false
-func _on_timer_timeout() -> void:
-	count += 1
-	if count > 4:
-		get_tree().change_scene_to_file("res://scenes/grade_up.tscn")
-	var col = Color.BLACK
-	if(white_or_black):
-		col = Color.WHITE
-	white_or_black = !white_or_black
-	$Label2.add_theme_color_override("font_color", col)

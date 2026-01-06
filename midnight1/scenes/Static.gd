@@ -37,11 +37,9 @@ func send_name(name):
 func send_kill(uuid):
 	socket.send_text(JSON.stringify({"type": "kill", "target_uuid": uuid}))
 
-
 func start_game():
 	var murder_index = randi_range(0, names.size()-1)
 	socket.send_text(JSON.stringify({"type": "start_game", "murderer_uuid": names.keys()[murder_index]}))
-
 
 func send_to_voting():
 	socket.send_text(JSON.stringify({"type": "send_to_voting"}))

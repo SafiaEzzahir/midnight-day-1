@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da75id8bngqyv"
-path="res://.godot/imported/orange_ball.png-2bf7753f45ed7d8085b2f7ca88581c70.ctex"
+uid="uid://cr58ulevk0ige"
+path="res://.godot/imported/blu.png-4a4800a35c82358b663406836c7bacd6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/orange_ball.png"
-dest_files=["res://.godot/imported/orange_ball.png-2bf7753f45ed7d8085b2f7ca88581c70.ctex"]
+source_file="res://Assets/blu.png"
+dest_files=["res://.godot/imported/blu.png-4a4800a35c82358b663406836c7bacd6.ctex"]
 
 [params]
 
