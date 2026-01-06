@@ -195,6 +195,6 @@ func check_success():
 			if colour != first_colour:
 				return false
 
-	get_tree().change_scene_to_file("res://Scenes/MainInterface/Winscreen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/grade_up.tscn")
 
 	return true

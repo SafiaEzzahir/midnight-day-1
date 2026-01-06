@@ -1,6 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://1e8pbradvbsi"]
 
-[ext_resource type="Texture2D" uid="uid://c1vrphvqlnted" path="res://icon.svg" id="1_67n0k"]
+[ext_resource type="Texture2D" uid="uid://cyi0hyb0djvtr" path="res://Assets/blfeu.png" id="1_67n0k"]
 
 [node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(1.9073486e-06, 9.536743e-07)
+scale = Vector2(1.2649997, 1.2049999)
 texture = ExtResource("1_67n0k")
