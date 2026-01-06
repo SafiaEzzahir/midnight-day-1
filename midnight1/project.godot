@@ -17,9 +17,16 @@ config/icon="res://icon.svg"
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [autoload]
 
 Static="*res://scenes/Static.gd"
+=======
+[display]
+
+window/size/mode=2
+window/stretch/mode="viewport"
+>>>>>>> Stashed changes
 =======
 [display]
 
