@@ -1,15 +1,15 @@
 extends Node
 
-@export var websocket_url = "ws://localhost:9002"
+@export var websocket_url = "ws://localhost:9003"
 
 var socket = WebSocketPeer.new()
 
-var user_id = 0
+var user_id: int = 0
 
 var names = {}
-
-var new_name: Signal
-var connected = false
+var is_connected = false
+var current_name = ""
+signal notify_names
 
 func _ready():
 	randomize()
@@ -17,18 +17,29 @@ func _ready():
 	
 	var err = socket.connect_to_url(websocket_url)
 	if(err == OK):
-		
+		is_connected = true
 	
+	await get_tree().create_timer(0.2).timeout
 	socket.send_text(JSON.stringify({"type": "get_name", "uuid": user_id}))
 
-var current_name = ""
 func send_name(name):
 	socket.send_text(JSON.stringify({"type": "name", "name": name, "uuid": user_id}))
 	current_name = name
-	names[user_id] = current_name
+	names[roundi(user_id)] = current_name
+	print("sendding name")
+
+var last_tick = 0
 
 func _process(_delta):
 	socket.poll()
+	
+	if Time.get_ticks_msec() - last_tick > 3000 && !is_connected:
+		last_tick = Time.get_ticks_msec()
+		
+		var err = socket.connect_to_url(websocket_url)
+		print("fetcehd connect")
+		if(err == OK):
+			is_connected = true
 
 	var state = socket.get_ready_state()
 	
@@ -39,11 +50,14 @@ func _process(_delta):
 				var packet_text = packet.get_string_from_utf8()
 				print("< Got text data from server: %s" % packet_text)
 				var packet_data = JSON.parse_string(packet.get_string_from_utf8())
-				if(packet_data["type"] == "get_names"):
+				if(packet_data["type"] == "get_name"):
 					send_name(current_name)
+					print("sending names")
+					
 				if(packet_data["type"] == "name"):
-					names[packet_data["uuid"]] = packet_data["names"]
-					new_name.emit()
+					names[roundi(packet_data["uuid"])] = packet_data["name"]
+					notify_names.emit()
+					print("emiting")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())
 
@@ -51,5 +65,6 @@ func _process(_delta):
 		pass
 
 	elif state == WebSocketPeer.STATE_CLOSED:
-		await get_tree().create_timer(2).timeout
-		var err = socket.connect_to_url(websocket_url)
+		is_connected = false
+		
+		

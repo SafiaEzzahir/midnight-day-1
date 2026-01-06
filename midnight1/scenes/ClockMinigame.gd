@@ -1,9 +1,7 @@
 extends Node2D
 
 var total_time = 0
-
 var correct_time = 0
-
 var correct = false
 
 func _ready() -> void:
@@ -30,8 +28,6 @@ func _input(event: InputEvent) -> void:
 			correct = true
 			$Label2/Timer.start()
 			$Label2.show()
-
-	
 
 func update_clock(time: float):
 	var minute_hand = roundi(time) % 60

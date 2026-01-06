@@ -41,8 +41,6 @@ offset_top = 448.0
 offset_right = 1088.0
 offset_bottom = 576.0
 theme_override_font_sizes/font_size = 30
-item_count = 1
-item_0/text = "Person"
 
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_left = 384.0
@@ -71,3 +69,5 @@ offset_bottom = 41.0
 theme_override_colors/font_color = Color(0.8509804, 0.015686275, 0.015686275, 1)
 theme_override_font_sizes/font_size = 25
 text = "Disconnected"
+
+[connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

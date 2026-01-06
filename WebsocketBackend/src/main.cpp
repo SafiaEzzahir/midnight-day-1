@@ -1,5 +1,3 @@
-#include <exception>
-#define ASIO_STANDALONE
 #include <websocketpp/config/asio_no_tls.hpp>
 
 #include <websocketpp/server.hpp>
@@ -11,9 +9,6 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/condition_variable.hpp>*/
 #include <websocketpp/common/thread.hpp>
-
-#include <nlohmann/json.hpp>
-using json = nlohmann::json;
 
 typedef websocketpp::server<websocketpp::config::asio> server;
 
@@ -33,25 +28,16 @@ using websocketpp::lib::unique_lock;
  * on_message queue send to all channels
  */
 
-enum action_type { SUBSCRIBE, UNSUBSCRIBE, MESSAGE, NAME };
+enum action_type { SUBSCRIBE, UNSUBSCRIBE, MESSAGE };
 
 struct action {
   action(action_type t, connection_hdl h) : type(t), hdl(h) {}
   action(action_type t, connection_hdl h, server::message_ptr m)
-      : type(t), hdl(h), msg(m) {
-    try {
-      processed = json::parse(m->get_payload());
-      if (processed["type"] == "name") {
-        type = NAME;
-      }
-    } catch (std::exception e) {
-    }
-  }
+      : type(t), hdl(h), msg(m) {}
 
   action_type type;
   websocketpp::connection_hdl hdl;
   server::message_ptr msg;
-  json processed;
 };
 
 class broadcast_server {
@@ -65,6 +51,8 @@ public:
     m_server.set_close_handler(bind(&broadcast_server::on_close, this, ::_1));
     m_server.set_message_handler(
         bind(&broadcast_server::on_message, this, ::_1, ::_2));
+
+    m_server.set_reuse_addr(true);
   }
 
   void run(uint16_t port) {
@@ -125,7 +113,7 @@ public:
 
       if (a.type == SUBSCRIBE) {
         lock_guard<mutex> guard(m_connection_lock);
-        m_connections[a.hdl] = {};
+        m_connections.insert(a.hdl);
       } else if (a.type == UNSUBSCRIBE) {
         lock_guard<mutex> guard(m_connection_lock);
         m_connections.erase(a.hdl);
@@ -134,7 +122,7 @@ public:
 
         con_list::iterator it;
         for (it = m_connections.begin(); it != m_connections.end(); ++it) {
-          m_server.send(it->first, a.msg);
+          m_server.send(*it, a.msg);
         }
       } else {
         // undefined.
@@ -143,11 +131,7 @@ public:
   }
 
 private:
-  struct connection_info {
-    std::optional<std::string> name;
-  };
-
-  typedef std::map<connection_hdl, connection_info> con_list;
+  typedef std::set<connection_hdl, std::owner_less<connection_hdl>> con_list;
 
   server m_server;
   con_list m_connections;
@@ -166,7 +150,7 @@ int main() {
     thread t(bind(&broadcast_server::process_messages, &server_instance));
 
     // Run the asio loop with the main thread
-    server_instance.run(9002);
+    server_instance.run(9003);
 
     t.join();
 
