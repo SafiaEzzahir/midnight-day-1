@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=10 format=3 uid="uid://dtxpxukab52pq"]
 
 [ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://scenes/white_square.png" id="1_5xl23"]
@@ -11,6 +12,10 @@
 
 [gd_scene load_steps=8 format=3 uid="uid://0unk11raf417"]
 
+=======
+[gd_scene load_steps=8 format=3 uid="uid://0unk11raf417"]
+
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://Scenes/white_square.png" id="1_5xl23"]
 [ext_resource type="Script" uid="uid://bi5vk1vkk8rj" path="res://Scenes/sorter_mini_game.gd" id="1_xlmuj"]
 [ext_resource type="Texture2D" uid="uid://drwf1ctwhmj86" path="res://Scenes/beaker.png" id="2_tkbo8"]
