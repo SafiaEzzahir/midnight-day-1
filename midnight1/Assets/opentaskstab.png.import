@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddyea4em4016o"
-path="res://.godot/imported/blue_ball.png-a26859b8bcb35943de158ad6d41e4bfe.ctex"
+uid="uid://cyvq101h0omsm"
+path="res://.godot/imported/opentaskstab.png-421fe2cc31aa5a53d875bf4f4ee472fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/blue_ball.png"
-dest_files=["res://.godot/imported/blue_ball.png-a26859b8bcb35943de158ad6d41e4bfe.ctex"]
+source_file="res://Assets/opentaskstab.png"
+dest_files=["res://.godot/imported/opentaskstab.png-421fe2cc31aa5a53d875bf4f4ee472fb.ctex"]
 
 [params]
 
