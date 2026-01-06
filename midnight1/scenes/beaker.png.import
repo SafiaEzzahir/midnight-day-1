@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bymajmm6tux7u"
-path="res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"
+uid="uid://drwf1ctwhmj86"
+path="res://.godot/imported/beaker.png-ee270d076cef91fd4670d187501f53a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"]
+source_file="res://scenes/beaker.png"
+dest_files=["res://.godot/imported/beaker.png-ee270d076cef91fd4670d187501f53a5.ctex"]
 
 [params]
 
