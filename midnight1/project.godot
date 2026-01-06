@@ -24,6 +24,9 @@ Static="*res://scenes/Static.gd"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+<<<<<<< HEAD
+=======
+>>>>>>> 5f062a60c05e0addb680c452d33d2985592fe234
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

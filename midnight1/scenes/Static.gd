@@ -1,6 +1,6 @@
 extends Node
 
-@export var websocket_url = "ws://localhost:9003"
+@export var websocket_url = "ws://foxmoss.com:9003"
 
 var socket = WebSocketPeer.new()
 
@@ -18,7 +18,6 @@ func _ready():
 	var err = socket.connect_to_url(websocket_url)
 	if(err == OK):
 		is_connected = true
-	
 	await get_tree().create_timer(0.2).timeout
 	socket.send_text(JSON.stringify({"type": "get_name", "uuid": user_id}))
 

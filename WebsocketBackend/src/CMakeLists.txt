@@ -16,6 +16,9 @@ FetchContent_MakeAvailable(websocketpp)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
 FetchContent_MakeAvailable(json)
 
+target_compile_options(websocket_midnight PRIVATE -static -static-libgcc -static-libstdc++)
+target_link_options(websocket_midnight PRIVATE -static -static-libgcc -static-libstdc++)
+
 target_link_libraries(websocket_midnight PRIVATE nlohmann_json::nlohmann_json)
 
 add_custom_command(TARGET websocket_midnight POST_BUILD
