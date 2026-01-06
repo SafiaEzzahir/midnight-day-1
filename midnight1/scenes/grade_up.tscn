@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwodggn38k73o"]
+
+[ext_resource type="Script" uid="uid://csccfnq3xc8id" path="res://scenes/grade_up.gd" id="1_17llm"]
+[ext_resource type="Texture2D" uid="uid://bqi7yx3afub3a" path="res://Assets/urlbox.png" id="1_ro10q"]
+[ext_resource type="Texture2D" uid="uid://d0ojuf5vn5m1f" path="res://Assets/gradeuo.png" id="2_fkdyf"]
+[ext_resource type="FontFile" uid="uid://dahnyixh3t1k0" path="res://Assets/BoldPixels.otf" id="3_fkdyf"]
+
+[sub_resource type="Gradient" id="Gradient_safwf"]
+offsets = PackedFloat32Array(0.006666667, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_17llm"]
+gradient = SubResource("Gradient_safwf")
+
+[node name="GradeUp" type="Node2D"]
+script = ExtResource("1_17llm")
+
+[node name="Background(White)" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture1D_17llm")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_top = 73.0
+offset_right = 1152.0
+offset_bottom = 188.0
+texture = ExtResource("1_ro10q")
+stretch_mode = 6
+
+[node name="Gradeuo" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(150, 50)
+texture = ExtResource("2_fkdyf")
+
+[node name="Homework" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 233.0
+offset_right = 291.0
+offset_bottom = 333.0
+theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("3_fkdyf")
+theme_override_font_sizes/font_size = 100
+text = "Grade up!
+
+B ->"

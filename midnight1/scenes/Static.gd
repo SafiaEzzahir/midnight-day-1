@@ -11,6 +11,9 @@ var is_connected = false
 var current_name = ""
 signal notify_names
 
+var current_grade = 0
+var grade_progress = ["F", "D", "C", "B", "A"]
+
 func _ready():
 	randomize()
 	user_id = randi()
