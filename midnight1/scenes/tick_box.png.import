@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddyea4em4016o"
-path="res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"
+uid="uid://dqsy8gwrl8b3b"
+path="res://.godot/imported/tick_box.png-c17a24f1260bda6a5500f02231f394ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/blue_ball.png"
-dest_files=["res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"]
+source_file="res://scenes/tick_box.png"
+dest_files=["res://.godot/imported/tick_box.png-c17a24f1260bda6a5500f02231f394ba.ctex"]
 
 [params]
 

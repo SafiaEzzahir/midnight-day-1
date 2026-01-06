@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddyea4em4016o"
-path="res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"
+uid="uid://bjotgu5l0t2ej"
+path="res://.godot/imported/votedLogo.png-f94c52838d982cad52a5912fbdda5aed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/blue_ball.png"
-dest_files=["res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"]
+source_file="res://Assets/votedLogo.png"
+dest_files=["res://.godot/imported/votedLogo.png-f94c52838d982cad52a5912fbdda5aed.ctex"]
 
 [params]
 

@@ -38,3 +38,7 @@ func connection(time):
 
 func _on_text_edit_text_changed() -> void:
 	get_node("/root/Static").send_name($TextEdit.text)
+
+
+func _on_play_button_button_down() -> void:
+	get_tree().change_scene_to_file('res://scenes/MainInterface/HomePage.tscn')
