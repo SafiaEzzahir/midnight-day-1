@@ -1,22 +1,13 @@
 extends Node2D
 
-signal mathsclicked
-signal writingclicked
-signal scienceclicked
-signal otherclicked
-
 func _on_writing_button_button_up() -> void:
-	writingclicked.emit()
-
-
+	get_tree().change_scene_to_file("res://scenes/match-shape-scene.tscn")
 
 func _on_maths_button_button_up() -> void:
-	mathsclicked.emit()
-
+	get_tree().change_scene_to_file("res://scenes/math_minigame.tscn")
 
 func _on_science_button_button_up() -> void:
-	scienceclicked.emit()
-
+	get_tree().change_scene_to_file("res://scenes/sorter_mini_game.tscn")
 
 func _on_murder_button_button_up() -> void:
-	otherclicked.emit()
+	get_tree().change_scene_to_file("res://scenes/clock_minigame.tscn")
