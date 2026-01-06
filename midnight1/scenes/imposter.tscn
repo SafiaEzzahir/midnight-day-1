@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://be2ck1pjgec4f"]
+[gd_scene load_steps=5 format=3 uid="uid://be2ck1pjgec4f"]
 
 [ext_resource type="Script" uid="uid://bijv6t6ekckmp" path="res://imposter.gd" id="1_xw3tx"]
 [ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="2_bu6yj"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="3_2aks0"]
+[ext_resource type="Texture2D" uid="uid://mk3erdv2rpyr" path="res://scenes/evil_clown.png" id="4_bu6yj"]
 
 [node name="Imposter" type="Node2D"]
 script = ExtResource("1_xw3tx")
@@ -22,12 +23,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
+offset_left = -408.5
+offset_top = -108.0
+offset_right = 408.5
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.86422294, 0, 0.2787223, 1)
 theme_override_fonts/font = ExtResource("3_2aks0")
 theme_override_font_sizes/font_size = 100
 text = "The Game Is Over"
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.375
+offset_top = -367.125
+offset_right = 572.375
+offset_bottom = 287.125
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_bu6yj")
