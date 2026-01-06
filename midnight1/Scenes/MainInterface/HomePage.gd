@@ -19,10 +19,10 @@ func _ready():
 	add_child(Page)
 	currentpage = Page
 	pagename = "tasks"
-	Page.mathsclicked.connect(maths_clicked)
-	Page.writingclicked.connect(writing_clicked)
-	Page.scienceclicked.connect(science_clicked)
-	Page.otherclicked.connect(other_clicked)
+	#Page.mathsclicked.connect(maths_clicked)
+	#Page.writingclicked.connect(writing_clicked)
+	#Page.scienceclicked.connect(science_clicked)
+	#Page.otherclicked.connect(other_clicked)
 
 func _on_task_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
@@ -30,10 +30,10 @@ func _on_task_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 			remove_child(currentpage)
 			var Page = TasksPage.instantiate()
 			add_child(Page)
-			Page.mathsclicked.connect(maths_clicked)
-			Page.writingclicked.connect(writing_clicked)
-			Page.scienceclicked.connect(science_clicked)
-			Page.otherclicked.connect(other_clicked)
+			#Page.mathsclicked.connect(maths_clicked)
+			#Page.writingclicked.connect(writing_clicked)
+			#Page.scienceclicked.connect(science_clicked)
+			#Page.otherclicked.connect(other_clicked)
 			currentpage = Page
 			pagename = "tasks"
 			ChangeTaskImg.emit(true)
