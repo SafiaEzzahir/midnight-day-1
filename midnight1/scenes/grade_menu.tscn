@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0ukusnp1idwc"]
 
-[ext_resource type="Script" uid="uid://cxi4bnucs1c6k" path="res://scenes/grade_menu.gd" id="1_174ub"]
+[ext_resource type="Script" uid="uid://cxi4bnucs1c6k" path="res://Scenes/grade_menu.gd" id="1_174ub"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="2_ssdmo"]
 
 [node name="GradeMenu" type="Node2D"]
