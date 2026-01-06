@@ -7,18 +7,12 @@ const TasksPage = preload("res://Scenes/MainInterface/TasksPage.tscn")
 const GradesPage = preload("res://Scenes/MainInterface/grades_page.tscn")
 const MapPage = preload("res://Scenes/MainInterface/Map_Page.tscn")
 
-@onready var TaskTabImage = $TopSection/Tabs/Area2D2/TaskTabImage
-@onready var GradesTabImage = $TopSection/Tabs/GradesTab/GradesTabImage
-@onready var MapTabImage = $TopSection/Tabs/MapTab
+signal ChangeTaskImg
+signal ChangeGradesImg
+signal ChangeMapImg
 
-#make button (lessons/homework) assets
-#timetable?
-#chat
-
-#art:
-#make more tabs (chat, grades, map, etc.)
-#change app icon borders to black/dark grey
-# and remove font
+#add map img to map page
+#add grade system and cooldown
 
 func _ready():
 	var Page = TasksPage.instantiate()
@@ -34,6 +28,9 @@ func _on_task_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 			add_child(Page)
 			currentpage = Page
 			pagename = "tasks"
+			ChangeTaskImg.emit(true)
+			ChangeMapImg.emit(false)
+			ChangeGradesImg.emit(false)
 
 func _on_grades_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
@@ -43,6 +40,9 @@ func _on_grades_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: 
 			add_child(Page)
 			currentpage = Page
 			pagename = "grades"
+			ChangeTaskImg.emit(false)
+			ChangeMapImg.emit(false)
+			ChangeGradesImg.emit(true)
 
 
 func _on_map_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -53,3 +53,6 @@ func _on_map_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			add_child(Page)
 			currentpage = Page
 			pagename = "map"
+			ChangeTaskImg.emit(false)
+			ChangeMapImg.emit(true)
+			ChangeGradesImg.emit(false)

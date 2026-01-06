@@ -1,12 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://mq38yrc8pmax"]
+[gd_scene load_steps=16 format=3 uid="uid://mq38yrc8pmax"]
 
 [ext_resource type="Script" uid="uid://crrgt5173n5eu" path="res://Scenes/MainInterface/tabs.gd" id="1_al6b8"]
-[ext_resource type="Script" uid="uid://npkija4hjvg8" path="res://Scenes/MainInterface/HomePage.tres.gd" id="1_t1mr8"]
+[ext_resource type="Script" uid="uid://npkija4hjvg8" path="res://Scenes/MainInterface/HomePage.gd" id="1_t1mr8"]
 [ext_resource type="Texture2D" uid="uid://cyvq101h0omsm" path="res://Assets/opentaskstab.png" id="2_rcpx8"]
 [ext_resource type="Texture2D" uid="uid://bqi7yx3afub3a" path="res://Assets/urlbox.png" id="3_6egfu"]
 [ext_resource type="Texture2D" uid="uid://dranhgqvjjo0j" path="res://Assets/inactivetab.png" id="3_f3hhi"]
+[ext_resource type="Script" uid="uid://1kfn18ujhtb" path="res://Scenes/MainInterface/task_tab_image.gd" id="4_6egfu"]
 [ext_resource type="Texture2D" uid="uid://htl07puxrsoq" path="res://Assets/endinactivetab.png" id="5_f3hhi"]
+[ext_resource type="Script" uid="uid://pw7876yr5d6o" path="res://Scenes/MainInterface/grades_tab_image.gd" id="7_f3hhi"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="7_t1mr8"]
+[ext_resource type="Script" uid="uid://kw4tycmybpm3" path="res://Scenes/MainInterface/map_tab_image.gd" id="8_07xii"]
 
 [sub_resource type="Gradient" id="Gradient_safwf"]
 offsets = PackedFloat32Array(0.006666667, 1)
@@ -23,9 +26,6 @@ size = Vector2(242, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rcpx8"]
 size = Vector2(241.5, 78)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6egfu"]
-size = Vector2(225.5, 78.5)
 
 [node name="HomePage" type="Node2D"]
 script = ExtResource("1_t1mr8")
@@ -49,6 +49,7 @@ offset_bottom = 146.0
 texture = ExtResource("2_rcpx8")
 expand_mode = 1
 stretch_mode = 4
+script = ExtResource("4_6egfu")
 
 [node name="Label" type="Label" parent="TopSection/Tabs/TaskTab/TaskTabImage"]
 texture_filter = 1
@@ -77,6 +78,7 @@ offset_bottom = 146.0
 texture = ExtResource("3_f3hhi")
 expand_mode = 1
 stretch_mode = 4
+script = ExtResource("7_f3hhi")
 
 [node name="Label" type="Label" parent="TopSection/Tabs/GradesTab/GradesTabImage"]
 texture_filter = 1
@@ -100,18 +102,19 @@ shape = SubResource("RectangleShape2D_t1mr8")
 [node name="MapTabImage" type="TextureRect" parent="TopSection/Tabs/MapTab"]
 texture_filter = 1
 offset_left = 506.0
-offset_right = 759.0
+offset_right = 801.0
 offset_bottom = 146.0
-texture = ExtResource("3_f3hhi")
+texture = ExtResource("5_f3hhi")
 expand_mode = 1
 stretch_mode = 4
+script = ExtResource("8_07xii")
 
 [node name="Label" type="Label" parent="TopSection/Tabs/MapTab/MapTabImage"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 85.0
+offset_left = 77.0
 offset_top = 12.0
-offset_right = 240.0
+offset_right = 234.0
 offset_bottom = 72.0
 theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
@@ -123,34 +126,6 @@ vertical_alignment = 1
 position = Vector2(638.25, 45)
 shape = SubResource("RectangleShape2D_rcpx8")
 
-[node name="Area2D2" type="Area2D" parent="TopSection/Tabs"]
-
-[node name="ChatTabImage" type="TextureRect" parent="TopSection/Tabs/Area2D2"]
-texture_filter = 1
-offset_left = 759.0
-offset_right = 1054.0
-offset_bottom = 146.0
-texture = ExtResource("5_f3hhi")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Label" type="Label" parent="TopSection/Tabs/Area2D2/ChatTabImage"]
-texture_filter = 1
-layout_mode = 0
-offset_left = 85.0
-offset_top = 12.0
-offset_right = 240.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
-theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 34
-text = "Chat?"
-vertical_alignment = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSection/Tabs/Area2D2"]
-position = Vector2(882.25, 44.75)
-shape = SubResource("RectangleShape2D_6egfu")
-
 [node name="TextureRect" type="TextureRect" parent="TopSection"]
 texture_filter = 1
 offset_left = 1.0
@@ -160,6 +135,9 @@ offset_bottom = 180.0
 texture = ExtResource("3_6egfu")
 stretch_mode = 6
 
+[connection signal="ChangeGradesImg" from="." to="TopSection/Tabs/GradesTab/GradesTabImage" method="_on_home_page_change_grades_img"]
+[connection signal="ChangeMapImg" from="." to="TopSection/Tabs/MapTab/MapTabImage" method="_on_home_page_change_map_img"]
+[connection signal="ChangeTaskImg" from="." to="TopSection/Tabs/TaskTab/TaskTabImage" method="_on_home_page_change_task_img"]
 [connection signal="input_event" from="TopSection/Tabs/TaskTab" to="." method="_on_task_tab_input_event"]
 [connection signal="input_event" from="TopSection/Tabs/GradesTab" to="." method="_on_grades_tab_input_event"]
 [connection signal="input_event" from="TopSection/Tabs/MapTab" to="." method="_on_map_tab_input_event"]
