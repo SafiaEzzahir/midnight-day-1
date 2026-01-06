@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	get_node("/root/Static").current_grade += 1
+	get_node("/root/Static").grade_notify(get_node("/root/Static").current_grade + 1)
 	var current_grade = get_node("/root/Static").grade_progress[get_node("/root/Static").current_grade]
 	var old_grade = get_node("/root/Static").grade_progress[get_node("/root/Static").current_grade - 1]
 	

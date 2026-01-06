@@ -152,4 +152,6 @@ func _process(_delta):
 		
 		
 func grade(uuid):
+	if(!grade_info.has(uuid)):
+		return "F";
 	return grade_progress[grade_info[uuid]]
