@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfb65q4576xya"]
 
-[ext_resource type="Texture2D" uid="uid://cqchdsv3ijsta" path="res://Scenes/mitcampus.jpg" id="1_egnyb"]
+[ext_resource type="Texture2D" uid="uid://cqchdsv3ijsta" path="res://scenes/mitcampus.jpg" id="1_egnyb"]
 
 [node name="Map" type="Node2D"]
 

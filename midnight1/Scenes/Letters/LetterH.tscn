@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d4l6uovpmqytb"]
 
 [ext_resource type="Texture2D" uid="uid://db6drncpxjxf" path="res://Assets/letterh.jpg" id="1_1fr6n"]
-[ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://Scenes/white_square.png" id="1_fp7j6"]
+[ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://scenes/white_square.png" id="1_fp7j6"]
 [ext_resource type="PackedScene" uid="uid://c6706tcgw2gki" path="res://Scenes/Letters/Checkpoint.tscn" id="2_uynwc"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="4_ll7ce"]
 
@@ -21,39 +21,30 @@ func _on_checkpoint_1_area_entered(_area: Area2D) -> void:
 	if not t1:
 		checkpoints+=1
 		t1 = true
-		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_2_area_entered(_area: Area2D) -> void:
 	if not t2:
 		checkpoints+=1
 		t2 = true
-		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_3_area_entered(_area: Area2D) -> void:
 	if not t3:
 		checkpoints+=1
 		t3 = true
-		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_4_area_entered(_area: Area2D) -> void:
 	if not t4:
 		checkpoints+=1
 		t4 = true
-		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
 	if not t5:
 		checkpoints+=1
 		t5 = true
-		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _process(_delta: float) -> void:
 	if checkpoints == target:
-		get_tree().change_scene_to_file(\"res://Scenes/grade_up.tscn\")
-
-
-func _on_match_shape_scene_reset() -> void:
-	checkpoints = 0
+		get_tree().change_scene_to_file(\"res://scenes/grade_up.tscn\")
 "
 
 [node name="LetterH" type="Area2D"]
