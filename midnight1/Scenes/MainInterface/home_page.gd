@@ -7,3 +7,4 @@ extends Node2D
 #art:
 #make more tabs (chat, grades, map, etc.)
 #change app icon borders to black/dark grey
+# and remove font
