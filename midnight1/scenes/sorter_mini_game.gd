@@ -107,6 +107,11 @@ func _input(event):
 			selected_jar = jar
 			select_next = true
 		else:
+			$Yellow1.hide()
+			$Yellow2.hide()
+			$Yellow3.hide()
+			$Yellow4.hide()
+			$Yellow5.hide()
 			move_ball(selected_jar, jar)
 			select_next = false
 
@@ -134,14 +139,39 @@ func get_jar_position(jar, height):
 
 func get_clicked_jar(mouse_x):
 	if mouse_x >= 80 and mouse_x <= 157:
+		$Yellow1.show()
+		$Yellow2.hide()
+		$Yellow3.hide()
+		$Yellow4.hide()
+		$Yellow5.hide()
 		return 1
 	elif mouse_x >= 304 and mouse_x <= 379:
+		$Yellow2.show()
+		$Yellow1.hide()
+		$Yellow3.hide()
+		$Yellow4.hide()
+		$Yellow5.hide()
 		return 2
 	elif mouse_x >= 529 and mouse_x <= 606:
+		$Yellow3.show()
+		$Yellow1.hide()
+		$Yellow2.hide()
+		$Yellow4.hide()
+		$Yellow5.hide()
 		return 3
 	elif mouse_x >= 754 and mouse_x <= 829:
+		$Yellow4.show()
+		$Yellow2.hide()
+		$Yellow3.hide()
+		$Yellow1.hide()
+		$Yellow5.hide()
 		return 4
 	elif mouse_x >= 978 and mouse_x <= 1054:
+		$Yellow5.show()
+		$Yellow2.hide()
+		$Yellow3.hide()
+		$Yellow1.hide()
+		$Yellow4.hide()
 		return 5
 	return -1
 

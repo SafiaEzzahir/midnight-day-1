@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtxpxukab52pq"]
+[gd_scene load_steps=10 format=3 uid="uid://dtxpxukab52pq"]
 
 [ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://scenes/white_square.png" id="1_5xl23"]
 [ext_resource type="Script" uid="uid://bi5vk1vkk8rj" path="res://scenes/sorter_mini_game.gd" id="1_xlmuj"]
 [ext_resource type="Texture2D" uid="uid://drwf1ctwhmj86" path="res://scenes/beaker.png" id="2_tkbo8"]
-[ext_resource type="Texture2D" uid="uid://cpva4dy04lwv4" path="res://scenes/green_ball.png" id="3_tkbo8"]
-[ext_resource type="Texture2D" uid="uid://c6ybrmtpex0g2" path="res://scenes/orange_ball.png" id="5_6gwci"]
-[ext_resource type="Texture2D" uid="uid://ddyea4em4016o" path="res://scenes/blue_ball.png" id="6_ljoyk"]
+[ext_resource type="Texture2D" uid="uid://c0m4vwh2thm0" path="res://Assets/yellow_square.png" id="3_ljoyk"]
+[ext_resource type="Texture2D" uid="uid://csbutg5mgw0u3" path="res://scenes/green_ball.png" id="3_tkbo8"]
+[ext_resource type="Texture2D" uid="uid://da75id8bngqyv" path="res://scenes/orange_ball.png" id="5_6gwci"]
+[ext_resource type="Texture2D" uid="uid://co8a3b5rk2tao" path="res://scenes/blue_ball.png" id="6_ljoyk"]
 [ext_resource type="Texture2D" uid="uid://dd8qo40a5ggjv" path="res://Assets/WinLogo.png" id="7_6gwci"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7d00n"]
+load_path = "res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"
 
 [node name="SorterMiniGame" type="Node2D"]
 script = ExtResource("1_xlmuj")
@@ -17,6 +21,51 @@ offset_top = -256.0
 offset_right = 1448.0
 offset_bottom = 1336.0
 texture = ExtResource("1_5xl23")
+
+[node name="Yellow1" type="TextureRect" parent="."]
+visible = false
+offset_left = 86.0
+offset_top = 216.0
+offset_right = 150.0
+offset_bottom = 618.0
+texture = ExtResource("3_ljoyk")
+expand_mode = 1
+
+[node name="Yellow2" type="TextureRect" parent="."]
+visible = false
+offset_left = 310.0
+offset_top = 216.0
+offset_right = 374.0
+offset_bottom = 618.0
+texture = ExtResource("3_ljoyk")
+expand_mode = 1
+
+[node name="Yellow3" type="TextureRect" parent="."]
+visible = false
+offset_left = 535.0
+offset_top = 216.0
+offset_right = 599.0
+offset_bottom = 618.0
+texture = ExtResource("3_ljoyk")
+expand_mode = 1
+
+[node name="Yellow4" type="TextureRect" parent="."]
+visible = false
+offset_left = 759.0
+offset_top = 216.0
+offset_right = 823.0
+offset_bottom = 618.0
+texture = ExtResource("3_ljoyk")
+expand_mode = 1
+
+[node name="Yellow5" type="TextureRect" parent="."]
+visible = false
+offset_left = 984.0
+offset_top = 216.0
+offset_right = 1048.0
+offset_bottom = 618.0
+texture = ExtResource("3_ljoyk")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_top = 88.0
@@ -159,7 +208,7 @@ offset_left = 760.0
 offset_top = 554.0
 offset_right = 824.0
 offset_bottom = 618.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank2" type="TextureRect" parent="."]
@@ -168,7 +217,7 @@ offset_left = 760.0
 offset_top = 464.0
 offset_right = 824.0
 offset_bottom = 528.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank3" type="TextureRect" parent="."]
@@ -177,7 +226,7 @@ offset_left = 760.0
 offset_top = 376.0
 offset_right = 824.0
 offset_bottom = 440.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank4" type="TextureRect" parent="."]
@@ -186,7 +235,7 @@ offset_left = 760.0
 offset_top = 288.0
 offset_right = 824.0
 offset_bottom = 352.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank5" type="TextureRect" parent="."]
@@ -195,7 +244,7 @@ offset_left = 984.0
 offset_top = 554.0
 offset_right = 1048.0
 offset_bottom = 618.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank6" type="TextureRect" parent="."]
@@ -204,7 +253,7 @@ offset_left = 984.0
 offset_top = 464.0
 offset_right = 1048.0
 offset_bottom = 528.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank7" type="TextureRect" parent="."]
@@ -213,7 +262,7 @@ offset_left = 984.0
 offset_top = 376.0
 offset_right = 1048.0
 offset_bottom = 440.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Blank8" type="TextureRect" parent="."]
@@ -222,7 +271,7 @@ offset_left = 984.0
 offset_top = 288.0
 offset_right = 1048.0
 offset_bottom = 352.0
-texture = ExtResource("6_ljoyk")
+texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Node2D" type="Node2D" parent="."]
