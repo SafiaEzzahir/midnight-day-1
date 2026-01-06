@@ -106,3 +106,5 @@ func _process(_delta):
 		is_connected = false
 		
 		
+func grade():
+	return grade_progress[current_grade]
