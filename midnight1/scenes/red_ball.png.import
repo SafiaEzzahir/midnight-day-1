@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bymajmm6tux7u"
-path="res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"
+uid="uid://t0ejuv2dbt28"
+path="res://.godot/imported/red_ball.png-b4a141abe4636ef50868c69b258e02f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"]
+source_file="res://scenes/red_ball.png"
+dest_files=["res://.godot/imported/red_ball.png-b4a141abe4636ef50868c69b258e02f6.ctex"]
 
 [params]
 

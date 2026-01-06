@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bymajmm6tux7u"
-path="res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"
+uid="uid://cpva4dy04lwv4"
+path="res://.godot/imported/green_ball.png-1cb5a9eff7018a73dd7852ffc8b18700.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/back_arrow.png"
-dest_files=["res://.godot/imported/back_arrow.png-715a8329ee560f4b2053ee110044e7fa.ctex"]
+source_file="res://scenes/green_ball.png"
+dest_files=["res://.godot/imported/green_ball.png-1cb5a9eff7018a73dd7852ffc8b18700.ctex"]
 
 [params]
 
