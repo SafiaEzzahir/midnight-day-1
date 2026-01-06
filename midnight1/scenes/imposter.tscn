@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://be2ck1pjgec4f"]
+
+[ext_resource type="Script" uid="uid://bijv6t6ekckmp" path="res://imposter.gd" id="1_xw3tx"]
+[ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="2_bu6yj"]
+[ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="3_2aks0"]
+
+[node name="Imposter" type="Node2D"]
+script = ExtResource("1_xw3tx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 1208.0
+offset_bottom = 656.0
+texture = ExtResource("2_bu6yj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.86422294, 0, 0.2787223, 1)
+theme_override_fonts/font = ExtResource("3_2aks0")
+theme_override_font_sizes/font_size = 100
+text = "
+WAS THE IMPOSTER"
