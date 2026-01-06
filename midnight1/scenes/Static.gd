@@ -8,9 +8,13 @@ var user_id: int = 0
 var murderer_id: int = 0
 
 var names = {}
+var grade_info = {}
+
+
 var votes = {}
 var vote_count = 0
 var is_connected = false
+
 var current_name = ""
 signal notify_names
 var is_dead = false
@@ -49,6 +53,11 @@ func vote(vote):
 
 func end_game():
 	socket.send_text(JSON.stringify({"type": "end_game"}))
+	
+	
+func grade_notify(grade):
+	socket.send_text(JSON.stringify({"type": "grade_notify", "uuid": user_id, "grade_num": grade}))
+	current_grade = grade
 
 	
 
@@ -114,6 +123,9 @@ func _process(_delta):
 						get_tree().change_scene_to_file("res://scenes/voting.tscn")
 						votes = {}
 						vote_count = 0
+						
+				if(packet_data["type"] == "grade_notify"):
+					grade_info[roundi(packet_data["uuid"])] = packet_data["grade_num"]
 				if(packet_data["type"] == "vote" && !is_dead):
 						vote_count += 1
 						if !votes.has(roundi(packet_data["voted_id"])):
@@ -139,5 +151,5 @@ func _process(_delta):
 		is_connected = false
 		
 		
-func grade():
-	return grade_progress[current_grade]
+func grade(uuid):
+	return grade_progress[grade_info[uuid]]

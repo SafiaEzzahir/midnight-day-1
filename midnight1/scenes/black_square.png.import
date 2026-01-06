@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctmaij1f6528o"
-path="res://.godot/imported/black_square.png-e9f68338098ac69139e05654f5f51f4c.ctex"
+path="res://.godot/imported/black_square.png-ca93c4d9a326455b7def4484ef5b9a15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/black_square.png"
-dest_files=["res://.godot/imported/black_square.png-e9f68338098ac69139e05654f5f51f4c.ctex"]
+source_file="res://scenes/black_square.png"
+dest_files=["res://.godot/imported/black_square.png-ca93c4d9a326455b7def4484ef5b9a15.ctex"]
 
 [params]
 
