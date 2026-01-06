@@ -10,6 +10,7 @@ var names = {}
 var is_connected = false
 var current_name = ""
 signal notify_names
+var is_dead = false
 
 var current_grade = 0
 var grade_progress = ["F", "D", "C", "B", "A"]
@@ -32,6 +33,16 @@ func send_name(name):
 
 func send_kill(uuid):
 	socket.send_text(JSON.stringify({"type": "kill", "target_uuid": uuid}))
+
+
+func start_game():
+	var murder_index = randi_range(0, names.size())
+	socket.send_text(JSON.stringify({"type": "start_game", "murderer_uuid": names.keys()[murder_index]}))
+
+
+func send_to_voting():
+	socket.send_text(JSON.stringify({"type": "send_to_voting"}))
+
 
 var last_tick = 0
 var first_open = true
@@ -77,6 +88,14 @@ func _process(_delta):
 				if(packet_data["type"] == "kill"):
 					if packet_data["target_uuid"] == user_id:
 						get_tree().change_scene_to_file("res://scenes/bsod.tscn")
+						is_dead = true
+				if(packet_data["type"] == "start_game"):
+					if packet_data["murderer_uuid"] == user_id:
+						get_tree().change_scene_to_file("res://scenes/murderer.tscn")
+					else:
+						get_tree().change_scene_to_file("res://Scenes/MainInterface/HomePage.tscn")
+				if(packet_data["type"] == "send_to_voting"):
+						get_tree().change_scene_to_file("res://scenes/voting.tscn")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())
 
