@@ -13,7 +13,7 @@ func _ready() -> void:
 		arrow.get_child(0).text = names[uuid]
 		arrow.uuid = uuid
 		
-var size = 400
+var size = 40
 
 func _process(delta: float) -> void:
 	if(Input.is_action_pressed("down")):
