@@ -41,7 +41,6 @@ theme_override_font_sizes/font_size = 30
 text = "10:35"
 
 [node name="Label2" type="Label" parent="."]
-visible = false
 offset_left = -357.0
 offset_top = -167.0
 offset_right = 330.0

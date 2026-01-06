@@ -19,6 +19,10 @@ func _ready():
 	add_child(Page)
 	currentpage = Page
 	pagename = "tasks"
+	Page.mathsclicked.connect(maths_clicked)
+	Page.writingclicked.connect(writing_clicked)
+	Page.scienceclicked.connect(science_clicked)
+	Page.otherclicked.connect(other_clicked)
 
 func _on_task_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
@@ -26,6 +30,10 @@ func _on_task_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 			remove_child(currentpage)
 			var Page = TasksPage.instantiate()
 			add_child(Page)
+			Page.mathsclicked.connect(maths_clicked)
+			Page.writingclicked.connect(writing_clicked)
+			Page.scienceclicked.connect(science_clicked)
+			Page.otherclicked.connect(other_clicked)
 			currentpage = Page
 			pagename = "tasks"
 			ChangeTaskImg.emit(true)
@@ -56,3 +64,16 @@ func _on_map_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			ChangeTaskImg.emit(false)
 			ChangeMapImg.emit(true)
 			ChangeGradesImg.emit(false)
+
+func maths_clicked():
+	get_tree().change_scene_to_file("res://Scenes/math_minigame.tscn")
+	
+func writing_clicked():
+	get_tree().change_scene_to_file("res://Scenes/match-shape-scene.tscn")
+
+func science_clicked():
+	get_tree().change_scene_to_file("res://Scenes/sorter_mini_game.tscn")
+	
+func other_clicked():
+	get_tree().change_scene_to_file("res://Scenes/clock_minigame.tscn")
+

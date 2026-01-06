@@ -165,7 +165,6 @@ func check_success():
 			if colour != first_colour:
 				return false
 
-	print("Success!")
-	$WinLogo.show()
-	has_won = true
+	get_tree().change_scene_to_file("res://Scenes/MainInterface/Winscreen.tscn")
+
 	return true

@@ -1,5 +1,10 @@
+
 [gd_scene load_steps=6 format=3 uid="uid://dk8xfuhsf3drc"]
 
+
+[gd_scene load_steps=7 format=3 uid="uid://dk8xfuhsf3drc"]
+
+[ext_resource type="Script" uid="uid://2rqcaqxgsfd6" path="res://Scenes/MainInterface/tasks_page.gd" id="1_1s5hg"]
 [ext_resource type="Texture2D" uid="uid://bqi5axandn8fj" path="res://Assets/writingicon.png" id="1_nsc12"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="2_1s5hg"]
 [ext_resource type="Texture2D" uid="uid://es0snblg2oqs" path="res://Assets/mathsicon.png" id="3_ybeui"]
@@ -7,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cl2momvqtxgnh" path="res://Assets/mysteryicon.png" id="5_xf1x3"]
 
 [node name="TasksPage" type="Node2D"]
+
+script = ExtResource("1_1s5hg")
+
 
 [node name="Writing" type="TextureRect" parent="."]
 texture_filter = 1
@@ -114,3 +122,10 @@ theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("2_1s5hg")
 theme_override_font_sizes/font_size = 60
 text = "Tasks"
+
+
+[connection signal="button_up" from="Writing/WritingButton" to="." method="_on_writing_button_button_up"]
+[connection signal="button_up" from="Maths/MathsButton" to="." method="_on_maths_button_button_up"]
+[connection signal="button_up" from="Science/ScienceButton" to="." method="_on_science_button_button_up"]
+[connection signal="button_up" from="Other/MurderButton" to="." method="_on_murder_button_button_up"]
+
