@@ -37,6 +37,7 @@ func connection(time):
 
 
 func _on_text_edit_text_changed() -> void:
+	
 	get_node("/root/Static").send_name($TextEdit.text)
 
 
