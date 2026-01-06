@@ -1,16 +1,31 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwodggn38k73o"]
+[gd_scene load_steps=16 format=3 uid="uid://bwodggn38k73o"]
 
-[ext_resource type="Script" uid="uid://csccfnq3xc8id" path="res://scenes/grade_up.gd" id="1_17llm"]
+[ext_resource type="Script" path="res://scenes/grade_up.gd" id="1_17llm"]
 [ext_resource type="Texture2D" uid="uid://bqi7yx3afub3a" path="res://Assets/urlbox.png" id="1_ro10q"]
-[ext_resource type="Texture2D" uid="uid://d0ojuf5vn5m1f" path="res://Assets/gradeuo.png" id="2_fkdyf"]
+[ext_resource type="Script" uid="uid://crrgt5173n5eu" path="res://Scenes/MainInterface/tabs.gd" id="2_38k8g"]
 [ext_resource type="FontFile" uid="uid://dahnyixh3t1k0" path="res://Assets/BoldPixels.otf" id="3_fkdyf"]
+[ext_resource type="Script" uid="uid://1kfn18ujhtb" path="res://Scenes/MainInterface/task_tab_image.gd" id="4_2t0nu"]
+[ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="5_l2tol"]
+[ext_resource type="Texture2D" uid="uid://dranhgqvjjo0j" path="res://Assets/inactivetab.png" id="6_7aui7"]
+[ext_resource type="Script" uid="uid://pw7876yr5d6o" path="res://Scenes/MainInterface/grades_tab_image.gd" id="7_sfwjf"]
+[ext_resource type="Texture2D" uid="uid://htl07puxrsoq" path="res://Assets/endinactivetab.png" id="8_ysbxg"]
+[ext_resource type="Script" uid="uid://kw4tycmybpm3" path="res://Scenes/MainInterface/map_tab_image.gd" id="9_eav1x"]
 
 [sub_resource type="Gradient" id="Gradient_safwf"]
 offsets = PackedFloat32Array(0.006666667, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_17llm"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pgfao"]
 gradient = SubResource("Gradient_safwf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kdpb"]
+size = Vector2(243, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q30jq"]
+size = Vector2(242, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wnvs"]
+size = Vector2(241.5, 78)
 
 [node name="GradeUp" type="Node2D"]
 script = ExtResource("1_17llm")
@@ -18,20 +33,107 @@ script = ExtResource("1_17llm")
 [node name="Background(White)" type="TextureRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = SubResource("GradientTexture1D_17llm")
+texture = SubResource("GradientTexture1D_pgfao")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TopSection" type="Node2D" parent="."]
+
+[node name="Tabs" type="Node2D" parent="TopSection"]
+script = ExtResource("2_38k8g")
+
+[node name="TaskTab" type="Area2D" parent="TopSection/Tabs"]
+
+[node name="TaskTabImage" type="TextureRect" parent="TopSection/Tabs/TaskTab"]
 texture_filter = 1
-offset_top = 73.0
-offset_right = 1152.0
-offset_bottom = 188.0
+offset_right = 253.0
+offset_bottom = 146.0
+texture = ExtResource("6_7aui7")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("4_2t0nu")
+
+[node name="Label" type="Label" parent="TopSection/Tabs/TaskTab/TaskTabImage"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 85.0
+offset_top = 12.0
+offset_right = 240.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("5_l2tol")
+theme_override_font_sizes/font_size = 34
+text = "Homework"
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSection/Tabs/TaskTab"]
+position = Vector2(128.5, 45.5)
+shape = SubResource("RectangleShape2D_5kdpb")
+
+[node name="GradesTab" type="Area2D" parent="TopSection/Tabs"]
+
+[node name="GradesTabImage" type="TextureRect" parent="TopSection/Tabs/GradesTab"]
+texture_filter = 1
+offset_left = 253.0
+offset_right = 506.0
+offset_bottom = 146.0
+texture = ExtResource("6_7aui7")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("7_sfwjf")
+
+[node name="Label" type="Label" parent="TopSection/Tabs/GradesTab/GradesTabImage"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 85.0
+offset_top = 12.0
+offset_right = 240.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("5_l2tol")
+theme_override_font_sizes/font_size = 34
+text = "Grades"
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSection/Tabs/GradesTab"]
+position = Vector2(385, 45)
+shape = SubResource("RectangleShape2D_q30jq")
+
+[node name="MapTab" type="Area2D" parent="TopSection/Tabs"]
+
+[node name="MapTabImage" type="TextureRect" parent="TopSection/Tabs/MapTab"]
+texture_filter = 1
+offset_left = 506.0
+offset_right = 801.0
+offset_bottom = 146.0
+texture = ExtResource("8_ysbxg")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("9_eav1x")
+
+[node name="Label" type="Label" parent="TopSection/Tabs/MapTab/MapTabImage"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 77.0
+offset_top = 12.0
+offset_right = 234.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("5_l2tol")
+theme_override_font_sizes/font_size = 34
+text = "Map of WD"
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSection/Tabs/MapTab"]
+position = Vector2(638.25, 45)
+shape = SubResource("RectangleShape2D_1wnvs")
+
+[node name="TextureRect" type="TextureRect" parent="TopSection"]
+texture_filter = 1
+offset_left = 1.0
+offset_top = 85.0
+offset_right = 1150.0
+offset_bottom = 180.0
 texture = ExtResource("1_ro10q")
 stretch_mode = 6
-
-[node name="Gradeuo" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(150, 50)
-texture = ExtResource("2_fkdyf")
 
 [node name="Homework" type="Label" parent="."]
 offset_left = 60.0
