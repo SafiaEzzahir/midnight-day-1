@@ -14,7 +14,7 @@ func _ready() -> void:
 	
 	$Label.text = "%d:%02d" % [hour_hand, minute_hand]
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#total_time += delta * 100
 	update_clock(total_time)
 	print("%f : %f", total_time, correct_time)

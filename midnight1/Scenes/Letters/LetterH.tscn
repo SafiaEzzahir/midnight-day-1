@@ -42,7 +42,7 @@ func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
 
 func _process(_delta: float) -> void:
 	if checkpoints == target:
-		print(\"success!!\")
+		get_tree().change_scene_to_file(\"res://Scenes/MainInterface/Winscreen.tscn\")
 "
 
 [node name="LetterH" type="Area2D"]
