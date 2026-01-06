@@ -39,6 +39,6 @@ func _process(delta: float) -> void:
 		
 	if(Input.is_action_pressed("enter") && target != null):
 		get_node("/root/Static").send_kill(target.uuid)
-		target.get_parent().queue_free()
+		target.queue_free()
 	
 var target = null
