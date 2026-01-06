@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready() -> void:
 	var names = get_node("/root/Static").names as Dictionary
 	
