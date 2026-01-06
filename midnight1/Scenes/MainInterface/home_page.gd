@@ -1,5 +1,7 @@
 extends Node2D
 
+var currentpage = "home"
+
 #make button (lessons/homework) assets
 #timetable?
 #chat
