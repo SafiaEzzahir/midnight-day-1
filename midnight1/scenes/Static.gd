@@ -11,6 +11,9 @@ var is_connected = false
 var current_name = ""
 signal notify_names
 
+var current_grade = 0
+var grade_progress = ["F", "D", "C", "B", "A"]
+
 func _ready():
 	randomize()
 	user_id = randi()
@@ -19,7 +22,6 @@ func _ready():
 	if(err == OK):
 		is_connected = true
 	await get_tree().create_timer(0.2).timeout
-	socket.send_text(JSON.stringify({"type": "get_name", "uuid": user_id}))
 
 func send_name(name):
 	socket.send_text(JSON.stringify({"type": "name", "name": name, "uuid": user_id}))
@@ -27,7 +29,12 @@ func send_name(name):
 	names[roundi(user_id)] = current_name
 	print("sendding name")
 
+
+func send_kill(uuid):
+	socket.send_text(JSON.stringify({"type": "kill", "target_uuid": uuid}))
+
 var last_tick = 0
+var first_open = true
 
 func _process(_delta):
 	socket.poll()
@@ -38,11 +45,16 @@ func _process(_delta):
 		var err = socket.connect_to_url(websocket_url)
 		print("fetcehd connect")
 		if(err == OK):
+			first_open = true
 			is_connected = true
 
 	var state = socket.get_ready_state()
 	
 	if state == WebSocketPeer.STATE_OPEN:
+		if first_open:
+			socket.send_text(JSON.stringify({"type": "get_name", "uuid": user_id}))
+			
+			first_open = false
 		while socket.get_available_packet_count():
 			var packet = socket.get_packet()
 			if socket.was_string_packet():
@@ -57,11 +69,19 @@ func _process(_delta):
 					names[roundi(packet_data["uuid"])] = packet_data["name"]
 					notify_names.emit()
 					print("emiting")
+				
+				if(packet_data["type"] == "remove_me"):
+					names[roundi(packet_data["uuid"])] = null
+					notify_names.emit()
+					
+				if(packet_data["type"] == "kill"):
+					if packet_data["target_uuid"] == user_id:
+						get_tree().change_scene_to_file("res://scenes/bsod.tscn")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())
 
 	elif state == WebSocketPeer.STATE_CLOSING:
-		pass
+		socket.send_text(JSON.stringify({"type": "remove_me", "uuid": user_id}))
 
 	elif state == WebSocketPeer.STATE_CLOSED:
 		is_connected = false

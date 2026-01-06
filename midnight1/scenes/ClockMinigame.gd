@@ -13,6 +13,7 @@ func _ready() -> void:
 	$Label.text = "%d:%02d" % [hour_hand, minute_hand]
 
 func _process(_delta: float) -> void:
+	total_time = max(total_time, 0)
 	#total_time += delta * 100
 	update_clock(total_time)
 	print("%f : %f", total_time, correct_time)
@@ -37,8 +38,12 @@ func update_clock(time: float):
 	$LittleHandPivot.rotation_degrees = (hour_hand / 12) * 360
 	
 
+var count = 0 
 var white_or_black = false
 func _on_timer_timeout() -> void:
+	count += 1
+	if count > 4:
+		get_tree().change_scene_to_file("res://scenes/grade_up.tscn")
 	var col = Color.BLACK
 	if(white_or_black):
 		col = Color.WHITE

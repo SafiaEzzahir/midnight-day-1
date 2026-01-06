@@ -13,6 +13,11 @@ extends Node2D
 @onready var TimesInput = $TimesInput
 @onready var DivideInput = $DivideInput
 
+var plus_correct = false
+var minus_correct = false
+var times_correct = false
+var divide_correct = false
+
 func _ready() -> void:
 	questions() 
 	_on_times_input_text_changed()
@@ -34,35 +39,48 @@ func questions():
 	while int(DivideNum1.text) % int(DivideNum2.text) != 0:
 		DivideNum2.text =str(randi_range(2,12))
 
+func _process(delta: float) -> void:
+	if times_correct && divide_correct && plus_correct && minus_correct:
+		get_tree().change_scene_to_file("res://scenes/grade_up.tscn")
+		
+
 func _on_times_input_text_changed() -> void:
 	if int(TimesNum1.text) * int(TimesNum2.text) == int(TimesInput.text):
+		times_correct = true
 		$TimesTick.show()
 		$TimesCross.hide()
 	else:
+		times_correct = false
 		$TimesCross.show()
 		$TimesTick.hide()
 
 
 func _on_divide_input_text_changed() -> void:
 	if int(DivideNum1.text) / int(DivideNum2.text) == int(DivideInput.text):
+		divide_correct = true
 		$DivideTick.show()
 		$DivideCross.hide()
 	else:
+		divide_correct = false
 		$DivideCross.show()
 		$DivideTick.hide()
 
 func _on_plus_input_text_changed() -> void:
 	if int(PlusNum1.text) + int(PlusNum2.text) == int(PlusInput.text):
+		plus_correct = true
 		$PlusTick.show()
 		$PlusCross.hide()
 	else:
+		plus_correct = false
 		$PlusCross.show()
 		$PlusTick.hide()
 
 func _on_minus_input_text_changed() -> void:
 	if int(MinusNum1.text) - int(MinusNum2.text) == int(MinusInput.text):
+		minus_correct = true
 		$MinusTick.show()
 		$MinusCross.hide()
 	else:
+		minus_correct = false
 		$MinusCross.show()
 		$MinusTick.hide()

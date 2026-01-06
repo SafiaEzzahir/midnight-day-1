@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcpr8dqq3dnjm"]
+
+[ext_resource type="Texture2D" uid="uid://dvun5hw1c2fle" path="res://Assets/bsod.png" id="1_dfu65"]
+
+[node name="Bsod" type="Node2D"]
+
+[node name="Bsod" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_dfu65")
