@@ -152,9 +152,7 @@ func _process(_delta):
 		
 		
 func grade(uuid):
-	var id = roundi(uuid)
 
-	if !grade_info.has(id):
-		return "F"  # or null / empty if you prefer
-
-	return grade_progress[grade_info[id]]
+	if(!grade_info.has(uuid)):
+		return "F";
+	return grade_progress[grade_info[uuid]]
