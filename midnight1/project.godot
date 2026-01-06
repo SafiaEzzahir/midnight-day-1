@@ -21,20 +21,8 @@ Static="*res://scenes/Static.gd"
 
 [display]
 
+window/size/mode=2
 window/size/resizable=false
-window/size/mode=2
-window/stretch/mode="viewport"
-
-
-[display]
-
-window/size/mode=2
-window/stretch/mode="viewport"
-
-
-[display]
-
-window/size/mode=2
 window/stretch/mode="viewport"
 
 [editor_plugins]
