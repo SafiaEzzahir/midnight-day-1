@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mk3erdv2rpyr"
-path="res://.godot/imported/evil_clown.png-1fee8099349a88bf7e2fb3bb941037e3.ctex"
+path="res://.godot/imported/evil_clown.png-7cf72fa0a49a09a116506dda626a11df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/evil_clown.png"
-dest_files=["res://.godot/imported/evil_clown.png-1fee8099349a88bf7e2fb3bb941037e3.ctex"]
+source_file="res://Scenes/evil_clown.png"
+dest_files=["res://.godot/imported/evil_clown.png-7cf72fa0a49a09a116506dda626a11df.ctex"]
 
 [params]
 
