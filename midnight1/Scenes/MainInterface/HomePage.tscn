@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://mq38yrc8pmax"]
+[gd_scene load_steps=11 format=3 uid="uid://mq38yrc8pmax"]
 
 [ext_resource type="Texture2D" uid="uid://bqi5axandn8fj" path="res://Assets/writingicon.png" id="1_i3bdn"]
 [ext_resource type="Script" uid="uid://ddt5awf27ppa1" path="res://Scenes/MainInterface/home_page.gd" id="1_tvxqy"]
+[ext_resource type="Texture2D" uid="uid://cyvq101h0omsm" path="res://Assets/opentaskstab.png" id="2_rcpx8"]
 [ext_resource type="Texture2D" uid="uid://bqi7yx3afub3a" path="res://Assets/urlbox.png" id="3_6egfu"]
 [ext_resource type="Texture2D" uid="uid://es0snblg2oqs" path="res://Assets/mathsicon.png" id="3_tvxqy"]
 [ext_resource type="Texture2D" uid="uid://b4l0ij4n4onew" path="res://Assets/scienceicon.png" id="4_yma0o"]
@@ -29,6 +30,13 @@ texture = SubResource("GradientTexture1D_osm0l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tabs/TasksTab"]
 
+[node name="TextureRect" type="TextureRect" parent="Tabs/TasksTab"]
+offset_right = 253.0
+offset_bottom = 146.0
+texture = ExtResource("2_rcpx8")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="TextureRect" type="TextureRect" parent="Tabs"]
 texture_filter = 1
 offset_left = 1.0
@@ -43,9 +51,9 @@ stretch_mode = 6
 [node name="Writing" type="TextureRect" parent="TasksPage"]
 texture_filter = 1
 offset_left = 578.0
-offset_top = 324.0
+offset_top = 303.0
 offset_right = 863.0
-offset_bottom = 618.0
+offset_bottom = 597.0
 texture = ExtResource("1_i3bdn")
 
 [node name="Button" type="Button" parent="TasksPage/Writing"]
@@ -60,16 +68,16 @@ theme_override_colors/font_pressed_color = Color(0.27450982, 0.50980395, 0.19607
 theme_override_colors/font_hover_color = Color(0.27450982, 0.50980395, 0.19607843, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.50980395, 0.19607843, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 55
 text = "writing"
 flat = true
 
 [node name="Maths" type="TextureRect" parent="TasksPage"]
 texture_filter = 1
 offset_left = 8.0
-offset_top = 328.0
+offset_top = 307.0
 offset_right = 289.0
-offset_bottom = 621.0
+offset_bottom = 600.0
 texture = ExtResource("3_tvxqy")
 
 [node name="Button" type="Button" parent="TasksPage/Maths"]
@@ -85,16 +93,16 @@ theme_override_colors/font_hover_color = Color(0.53333336, 0.29411766, 0.1686274
 theme_override_colors/font_hover_pressed_color = Color(0.53333336, 0.29411766, 0.16862746, 1)
 theme_override_colors/font_outline_color = Color(0.53333336, 0.29411766, 0.16862746, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 79
+theme_override_font_sizes/font_size = 55
 text = "maths"
 flat = true
 
 [node name="Science" type="TextureRect" parent="TasksPage"]
 texture_filter = 1
 offset_left = 292.0
-offset_top = 327.0
+offset_top = 306.0
 offset_right = 574.0
-offset_bottom = 623.0
+offset_bottom = 602.0
 texture = ExtResource("4_yma0o")
 
 [node name="Button" type="Button" parent="TasksPage/Science"]
@@ -109,16 +117,16 @@ theme_override_colors/font_pressed_color = Color(0.23529412, 0.36862746, 0.54509
 theme_override_colors/font_hover_color = Color(0.23529412, 0.36862746, 0.54509807, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.23529412, 0.36862746, 0.54509807, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 69
+theme_override_font_sizes/font_size = 55
 text = "science"
 flat = true
 
 [node name="Other" type="TextureRect" parent="TasksPage"]
 texture_filter = 1
 offset_left = 867.0
-offset_top = 324.0
+offset_top = 303.0
 offset_right = 1147.0
-offset_bottom = 614.0
+offset_bottom = 593.0
 texture = ExtResource("5_al6b8")
 
 [node name="Button" type="Button" parent="TasksPage/Other"]
@@ -133,16 +141,16 @@ theme_override_colors/font_pressed_color = Color(0.47843137, 0.21176471, 0.48235
 theme_override_colors/font_hover_color = Color(0.47843137, 0.21176471, 0.48235294, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.47843137, 0.21176471, 0.48235294, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 55
 text = "???"
 flat = true
 
 [node name="Homework" type="Label" parent="TasksPage"]
-offset_left = 60.0
-offset_top = 213.0
-offset_right = 291.0
-offset_bottom = 313.0
+offset_left = 44.0
+offset_top = 214.0
+offset_right = 247.0
+offset_bottom = 284.0
 theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
 theme_override_fonts/font = ExtResource("7_t1mr8")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 60
 text = "Tasks"
