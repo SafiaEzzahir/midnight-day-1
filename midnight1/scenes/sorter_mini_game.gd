@@ -21,28 +21,25 @@ extends Node2D
 @onready var Blank7 = $Blank7
 @onready var Blank8 = $Blank8
 
-var jar1Place1
-var jar1Place2
-var jar1Place3
-var jar1Place4
-var jar2Place1
-var jar2Place2
-var jar2Place3
-var jar2Place4
-var jar3Place1
-var jar3Place2
-var jar3Place3
-var jar3Place4
-var jar4Place1
-var jar4Place2
-var jar4Place3
-var jar4Place4
-var jar5Place1
-var jar5Place2
-var jar5Place3
-var jar5Place4
+var jar1Place1; var jar1Place2; var jar1Place3; var jar1Place4
+var jar2Place1; var jar2Place2; var jar2Place3; var jar2Place4
+var jar3Place1; var jar3Place2; var jar3Place3; var jar3Place4
+var jar4Place1; var jar4Place2; var jar4Place3; var jar4Place4
+var jar5Place1; var jar5Place2; var jar5Place3; var jar5Place4
 
-func _ready() -> void:
+var jar_balls = {
+	1: [],
+	2: [],
+	3: [],
+	4: [],
+	5: []
+}
+
+var select_next = false
+var selected_jar = -1
+
+func _ready():
+
 	jar1Place1 = GreenBall1.position
 	jar1Place2 = GreenBall2.position
 	jar1Place3 = GreenBall3.position
@@ -70,58 +67,134 @@ func _ready() -> void:
 
 	start()
 
-
 func start():
 	var coloursList = ["green", "blue", "orange"]
 	var colour = coloursList[randi() % coloursList.size()]
-	
+
 	if colour == "green":
-		
-		$GreenBall1.position = jar1Place1
-		$GreenBall2.position = jar1Place3
-		$GreenBall3.position = jar2Place4
-		$GreenBall4.position = jar3Place2
-		
-		$OrangeBall1.position = jar1Place2
-		$OrangeBall2.position = jar1Place4
-		$OrangeBall3.position = jar2Place1
-		$OrangeBall4.position = jar2Place2
-		
-		$BlueBall1.position = jar2Place3
-		$BlueBall2.position = jar3Place1
-		$BlueBall3.position = jar3Place3
-		$BlueBall4.position = jar3Place4
-		
+
+		GreenBall1.position = jar1Place1
+		GreenBall2.position = jar1Place2
+		OrangeBall1.position = jar1Place3
+		OrangeBall2.position = jar1Place4
+
+		OrangeBall3.position = jar2Place1
+		BlueBall1.position = jar2Place2
+		BlueBall2.position = jar2Place3
+		GreenBall3.position = jar2Place4
+
+		BlueBall3.position = jar3Place1
+		BlueBall4.position = jar3Place2
+		GreenBall4.position = jar3Place3
+
+		jar_balls[1] = [GreenBall1, GreenBall2, OrangeBall1, OrangeBall2]
+		jar_balls[2] = [OrangeBall3, BlueBall1, BlueBall2, GreenBall3]
+		jar_balls[3] = [BlueBall3, BlueBall4, GreenBall4]
+		jar_balls[4] = []
+		jar_balls[5] = []
+
 	elif colour == "blue":
-		
-		$BlueBall1.position = jar1Place1
-		$BlueBall2.position = jar1Place3
-		$BlueBall3.position = jar2Place4
-		$BlueBall4.position = jar3Place2
-		
-		$GreenBall1.position = jar1Place2
-		$GreenBall2.position = jar1Place4
-		$GreenBall3.position = jar2Place1
-		$GreenBall4.position = jar2Place2
-		
-		$OrangeBall1.position = jar2Place3
-		$OrangeBall2.position = jar3Place1
-		$OrangeBall3.position = jar3Place3
-		$OrangeBall4.position = jar3Place4
-		
+		BlueBall1.position = jar1Place1
+		BlueBall2.position = jar1Place2
+		GreenBall1.position = jar1Place3
+		GreenBall2.position = jar1Place4
+
+		GreenBall3.position = jar2Place1
+		OrangeBall1.position = jar2Place2
+		OrangeBall2.position = jar2Place3
+		BlueBall3.position = jar2Place4
+
+		OrangeBall3.position = jar3Place1
+		OrangeBall4.position = jar3Place2
+		BlueBall4.position = jar3Place3
+		GreenBall4.position = jar3Place4
+
+		jar_balls[1] = [BlueBall1, BlueBall2, GreenBall1, GreenBall2]
+		jar_balls[2] = [GreenBall3, OrangeBall1, OrangeBall2, BlueBall3]
+		jar_balls[3] = [OrangeBall3, OrangeBall4, BlueBall4, GreenBall4]
+		jar_balls[4] = []
+		jar_balls[5] = []
+
 	else:
-		
-		$OrangeBall1.position = jar1Place1
-		$OrangeBall2.position = jar1Place3
-		$OrangeBall3.position = jar2Place4
-		$OrangeBall4.position = jar3Place2
-		
-		$BlueBall1.position = jar1Place2
-		$BlueBall2.position = jar1Place4
-		$BlueBall3.position = jar2Place1
-		$BlueBall4.position = jar2Place2
-		
-		$GreenBall1.position = jar2Place3
-		$GreenBall2.position = jar3Place1
-		$GreenBall3.position = jar3Place3
-		$GreenBall4.position = jar3Place4
+		OrangeBall1.position = jar1Place1
+		OrangeBall2.position = jar1Place2
+		BlueBall1.position = jar1Place3
+		BlueBall2.position = jar1Place4
+
+		BlueBall3.position = jar2Place1
+		GreenBall1.position = jar2Place2
+		OrangeBall3.position = jar2Place3
+		GreenBall2.position = jar2Place4
+
+		GreenBall3.position = jar3Place1
+		OrangeBall4.position = jar3Place2
+		GreenBall4.position = jar3Place3
+		BlueBall4.position = jar3Place4
+
+		jar_balls[1] = [OrangeBall1, OrangeBall2, BlueBall1, BlueBall2]
+		jar_balls[2] = [BlueBall3, GreenBall1, OrangeBall3, GreenBall2]
+		jar_balls[3] = [GreenBall3, OrangeBall4, GreenBall4, BlueBall4]
+		jar_balls[4] = []
+		jar_balls[5] = []
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		var jar = get_clicked_jar(event.global_position.x)
+		if jar == -1:
+			return
+
+		if not select_next:
+			selected_jar = jar
+			select_next = true
+		else:
+			move_ball(selected_jar, jar)
+			select_next = false
+
+func move_ball(from_jar, to_jar):
+	if jar_balls[from_jar].is_empty():
+		return
+	if jar_balls[to_jar].size() >= 4:
+		return
+
+	var ball = jar_balls[from_jar].pop_back() 
+	jar_balls[to_jar].append(ball)   
+
+	var pos = get_jar_position(to_jar, jar_balls[to_jar].size())
+	ball.position = pos
+	
+	check_success()
+
+func get_jar_position(jar, height):
+	match jar:
+		1: return [jar1Place1, jar1Place2, jar1Place3, jar1Place4][height - 1]
+		2: return [jar2Place1, jar2Place2, jar2Place3, jar2Place4][height - 1]
+		3: return [jar3Place1, jar3Place2, jar3Place3, jar3Place4][height - 1]
+		4: return [jar4Place1, jar4Place2, jar4Place3, jar4Place4][height - 1]
+		5: return [jar5Place1, jar5Place2, jar5Place3, jar5Place4][height - 1]
+
+	return Vector2.ZERO
+
+func get_clicked_jar(mouse_x):
+	if mouse_x >= 80 and mouse_x <= 157:
+		return 1
+	elif mouse_x >= 304 and mouse_x <= 379:
+		return 2
+	elif mouse_x >= 529 and mouse_x <= 606:
+		return 3
+	elif mouse_x >= 754 and mouse_x <= 829:
+		return 4
+	elif mouse_x >= 978 and mouse_x <= 1054:
+		return 5
+	return -1
+
+func check_success():
+	for jar in [1, 2, 3]: # only the main jars
+		if jar_balls[jar].is_empty():
+			return false
+		var first_colour = jar_balls[jar][0].name.substr(0, jar_balls[jar][0].name.find("Ball"))
+		for ball in jar_balls[jar]:
+			var colour = ball.name.substr(0, ball.name.find("Ball"))
+			if colour != first_colour:
+				return false
+	print("Success!")
+	return true
