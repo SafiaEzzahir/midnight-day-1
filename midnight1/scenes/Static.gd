@@ -1,6 +1,6 @@
 extends Node
 
-@export var websocket_url = "ws://foxmoss.com:9003"
+@export var websocket_url = "wss://foxmoss.com:9004"
 
 var socket = WebSocketPeer.new()
 
@@ -49,6 +49,7 @@ func vote(vote):
 
 func end_game():
 	socket.send_text(JSON.stringify({"type": "end_game"}))
+
 	
 
 var last_tick = 0
@@ -115,7 +116,9 @@ func _process(_delta):
 						vote_count = 0
 				if(packet_data["type"] == "vote" && !is_dead):
 						vote_count += 1
-						votes[packet_data["voted_id"]] += 1
+						if !votes.has(roundi(packet_data["voted_id"])):
+							votes[roundi(packet_data["voted_id"])] = 0
+						votes[roundi(packet_data["voted_id"])] += 1
 						if vote_count == alive_people:
 							var max_vote_count = 0
 							var max_uuid = 0
@@ -125,7 +128,7 @@ func _process(_delta):
 									max_uuid = vote
 							send_kill(max_uuid)
 				if(packet_data["type"] == "end_game" && !is_dead):
-					get_tree().change_scene_to_file("res://Scenes/MainInterface/Winscreen.tscn")
+					get_tree().change_scene_to_file("res://scenes/imposter.tscn")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())
 
