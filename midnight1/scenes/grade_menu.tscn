@@ -12,10 +12,10 @@ script = ExtResource("1_174ub")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -121.0
-offset_top = 160.0
-offset_right = 119.0
-offset_bottom = 256.0
+offset_left = -365.0
+offset_top = 284.0
+offset_right = 363.0
+offset_bottom = 437.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ssdmo")
@@ -25,10 +25,10 @@ Class 10P Grades"
 horizontal_alignment = 1
 
 [node name="ItemList" type="ItemList" parent="."]
-offset_left = 315.0
-offset_top = 368.0
-offset_right = 891.0
-offset_bottom = 543.0
+offset_left = 308.0
+offset_top = 460.0
+offset_right = 884.0
+offset_bottom = 635.0
 theme_override_fonts/font = ExtResource("2_ssdmo")
 theme_override_font_sizes/font_size = 30
 item_count = 4
