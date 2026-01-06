@@ -15,30 +15,27 @@ run/main_scene="uid://c51kr7b0t1pyt"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 [autoload]
 
 Static="*res://scenes/Static.gd"
-=======
+
 [display]
 
 window/size/mode=2
 window/stretch/mode="viewport"
->>>>>>> Stashed changes
-=======
+
+
 [display]
 
 window/size/mode=2
 window/stretch/mode="viewport"
->>>>>>> Stashed changes
-=======
+
+
 [display]
 
 window/size/mode=2
 window/stretch/mode="viewport"
->>>>>>> Stashed changes
+
 
 [editor_plugins]
 
