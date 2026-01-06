@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://sl7i0wmcrc3p"]
+[gd_scene load_steps=5 format=3 uid="uid://dt24n8rhpumdo"]
 
-[ext_resource type="Script" uid="uid://cdb4n0jq4hdqh" path="res://node_2d.gd" id="1_ux0cl"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_ux0cl"]
 [ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="2_42aia"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="3_q1pfn"]
 [ext_resource type="Texture2D" uid="uid://bjotgu5l0t2ej" path="res://Assets/votedLogo.png" id="4_42aia"]

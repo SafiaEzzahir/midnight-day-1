@@ -42,4 +42,4 @@ func _on_text_edit_text_changed() -> void:
 
 
 func _on_play_button_button_down() -> void:
-	get_tree().change_scene_to_file('res://scenes/murderer.tscn')
+	get_node("/root/Static").start_game()
