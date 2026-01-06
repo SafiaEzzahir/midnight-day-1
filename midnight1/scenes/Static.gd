@@ -77,6 +77,7 @@ func _process(_delta):
 				if(packet_data["type"] == "kill"):
 					if packet_data["target_uuid"] == user_id:
 						get_tree().change_scene_to_file("res://scenes/bsod.tscn")
+						get_tree().change_scene_to_file("res://scenes/voting.tscn")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())
 
