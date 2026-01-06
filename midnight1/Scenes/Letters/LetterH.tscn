@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4l6uovpmqytb"]
+[gd_scene load_steps=6 format=3 uid="uid://d4l6uovpmqytb"]
 
 [ext_resource type="Texture2D" uid="uid://db6drncpxjxf" path="res://Assets/letterh.jpg" id="1_1fr6n"]
+[ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://Scenes/white_square.png" id="1_fp7j6"]
 [ext_resource type="PackedScene" uid="uid://c6706tcgw2gki" path="res://Scenes/Letters/Checkpoint.tscn" id="2_uynwc"]
+[ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="4_ll7ce"]
 
 [sub_resource type="GDScript" id="GDScript_1fr6n"]
 script/source = "extends Area2D
@@ -19,26 +21,31 @@ func _on_checkpoint_1_area_entered(_area: Area2D) -> void:
 	if not t1:
 		checkpoints+=1
 		t1 = true
+		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_2_area_entered(_area: Area2D) -> void:
 	if not t2:
 		checkpoints+=1
 		t2 = true
+		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_3_area_entered(_area: Area2D) -> void:
 	if not t3:
 		checkpoints+=1
 		t3 = true
+		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_4_area_entered(_area: Area2D) -> void:
 	if not t4:
 		checkpoints+=1
 		t4 = true
+		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _on_checkpoint_5_area_entered(_area: Area2D) -> void:
 	if not t5:
 		checkpoints+=1
 		t5 = true
+		$Label.text = str(int(float(checkpoints)/float(target)*100.0)) + \"% done\"
 
 func _process(_delta: float) -> void:
 	if checkpoints == target:
@@ -51,6 +58,13 @@ func _on_match_shape_scene_reset() -> void:
 
 [node name="LetterH" type="Area2D"]
 script = SubResource("GDScript_1fr6n")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 4.0
+offset_top = -141.0
+offset_right = 1240.0
+offset_bottom = 718.0
+texture = ExtResource("1_fp7j6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(575, 324.00003)
@@ -78,6 +92,23 @@ position = Vector2(700, 104)
 
 [node name="Checkpoint5" parent="Checkpoints" instance=ExtResource("2_uynwc")]
 position = Vector2(708, 487)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 233.0
+offset_top = 590.0
+offset_right = 941.0
+offset_bottom = 718.0
+texture = ExtResource("1_fp7j6")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 422.0
+offset_top = 547.0
+offset_right = 736.0
+offset_bottom = 655.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ll7ce")
+theme_override_font_sizes/font_size = 80
+text = "0% done"
 
 [connection signal="area_entered" from="Checkpoints/Checkpoint1" to="." method="_on_checkpoint_1_area_entered"]
 [connection signal="area_entered" from="Checkpoints/Checkpoint2" to="." method="_on_checkpoint_2_area_entered"]
