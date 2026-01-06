@@ -9,6 +9,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_item_list_item_selected(index):
+	get_node("/root/Static").vote(get_node("/root/Static").names.keys()[index])
 	print("Item selected")
 	$VotedLogo.show()
 	$CanvasLayer/Title.hide()
