@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 		$Arrow.position.x += delta * size
 		
 	if(Input.is_action_pressed("enter") && target != null):
-		get_node("/root/Static").send_kill(target.get_parent().uuid)
+		get_node("/root/Static").send_kill(target.uuid)
 		target.get_parent().queue_free()
 	
 var target = null

@@ -76,4 +76,3 @@ func science_clicked():
 	
 func other_clicked():
 	get_tree().change_scene_to_file("res://Scenes/clock_minigame.tscn")
-
