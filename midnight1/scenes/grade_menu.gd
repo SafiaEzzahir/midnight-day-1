@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready() -> void:
 	(get_node("/root/Static").notify_names as Signal).connect(notify_names)
 
