@@ -5,6 +5,7 @@ extends Node
 var socket = WebSocketPeer.new()
 
 var user_id: int = 0
+var murderer_id: int = 0
 
 var names = {}
 var is_connected = false
@@ -36,7 +37,7 @@ func send_kill(uuid):
 
 
 func start_game():
-	var murder_index = randi_range(0, names.size())
+	var murder_index = randi_range(0, names.size()-1)
 	socket.send_text(JSON.stringify({"type": "start_game", "murderer_uuid": names.keys()[murder_index]}))
 
 
@@ -90,11 +91,12 @@ func _process(_delta):
 						get_tree().change_scene_to_file("res://scenes/bsod.tscn")
 						is_dead = true
 				if(packet_data["type"] == "start_game"):
+					murderer_id = packet_data["murderer_uuid"]
 					if packet_data["murderer_uuid"] == user_id:
 						get_tree().change_scene_to_file("res://scenes/murderer.tscn")
 					else:
 						get_tree().change_scene_to_file("res://Scenes/MainInterface/HomePage.tscn")
-				if(packet_data["type"] == "send_to_voting"):
+				if(packet_data["type"] == "send_to_voting" && !is_dead):
 						get_tree().change_scene_to_file("res://scenes/voting.tscn")
 			else:
 				print("< Got binary data from server: %d bytes" % packet.size())

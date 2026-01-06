@@ -4,7 +4,7 @@ var currentpage = null
 var pagename = ""
 
 const TasksPage = preload("res://Scenes/MainInterface/TasksPage.tscn")
-const GradesPage = preload("res://Scenes/grade_menu.tscn")
+const GradesPage = preload("res://scenes/grade_menu.tscn")
 const MapPage = preload("res://Scenes/MainInterface/Map_Page.tscn")
 
 signal ChangeTaskImg
@@ -64,6 +64,11 @@ func _on_map_tab_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 			ChangeTaskImg.emit(false)
 			ChangeMapImg.emit(true)
 			ChangeGradesImg.emit(false)
+
+func _on_vote_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton:
+		get_node("/root/Static").send_to_voting()
+
 
 func maths_clicked():
 	get_tree().change_scene_to_file("res://Scenes/math_minigame.tscn")

@@ -1,15 +1,15 @@
 [gd_scene load_steps=16 format=3 uid="uid://mq38yrc8pmax"]
 
-[ext_resource type="Script" uid="uid://crrgt5173n5eu" path="res://Scenes/MainInterface/tabs.gd" id="1_al6b8"]
+[ext_resource type="Script" path="res://Scenes/MainInterface/tabs.gd" id="1_al6b8"]
 [ext_resource type="Script" uid="uid://npkija4hjvg8" path="res://Scenes/MainInterface/HomePage.gd" id="1_t1mr8"]
 [ext_resource type="Texture2D" uid="uid://cyvq101h0omsm" path="res://Assets/opentaskstab.png" id="2_rcpx8"]
 [ext_resource type="Texture2D" uid="uid://bqi7yx3afub3a" path="res://Assets/urlbox.png" id="3_6egfu"]
 [ext_resource type="Texture2D" uid="uid://dranhgqvjjo0j" path="res://Assets/inactivetab.png" id="3_f3hhi"]
-[ext_resource type="Script" uid="uid://1kfn18ujhtb" path="res://Scenes/MainInterface/task_tab_image.gd" id="4_6egfu"]
+[ext_resource type="Script" path="res://Scenes/MainInterface/task_tab_image.gd" id="4_6egfu"]
 [ext_resource type="Texture2D" uid="uid://htl07puxrsoq" path="res://Assets/endinactivetab.png" id="5_f3hhi"]
-[ext_resource type="Script" uid="uid://pw7876yr5d6o" path="res://Scenes/MainInterface/grades_tab_image.gd" id="7_f3hhi"]
+[ext_resource type="Script" path="res://Scenes/MainInterface/grades_tab_image.gd" id="7_f3hhi"]
 [ext_resource type="FontFile" uid="uid://ckhah5e2a3pfc" path="res://Assets/LowresPixel-Regular.otf" id="7_t1mr8"]
-[ext_resource type="Script" uid="uid://kw4tycmybpm3" path="res://Scenes/MainInterface/map_tab_image.gd" id="8_07xii"]
+[ext_resource type="Script" path="res://Scenes/MainInterface/map_tab_image.gd" id="8_07xii"]
 
 [sub_resource type="Gradient" id="Gradient_safwf"]
 offsets = PackedFloat32Array(0.006666667, 1)
@@ -126,6 +126,25 @@ vertical_alignment = 1
 position = Vector2(638.25, 45)
 shape = SubResource("RectangleShape2D_rcpx8")
 
+[node name="Vote" type="Area2D" parent="TopSection/Tabs"]
+position = Vector2(371, 0)
+
+[node name="Label" type="Label" parent="TopSection/Tabs/Vote"]
+texture_filter = 1
+offset_left = 554.0
+offset_top = 16.0
+offset_right = 711.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.5058824, 0.5921569, 0.5882353, 1)
+theme_override_fonts/font = ExtResource("7_t1mr8")
+theme_override_font_sizes/font_size = 34
+text = "Vote out!"
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopSection/Tabs/Vote"]
+position = Vector2(638.25, 45)
+shape = SubResource("RectangleShape2D_rcpx8")
+
 [node name="TextureRect" type="TextureRect" parent="TopSection"]
 texture_filter = 1
 offset_left = 1.0
@@ -141,3 +160,4 @@ stretch_mode = 6
 [connection signal="input_event" from="TopSection/Tabs/TaskTab" to="." method="_on_task_tab_input_event"]
 [connection signal="input_event" from="TopSection/Tabs/GradesTab" to="." method="_on_grades_tab_input_event"]
 [connection signal="input_event" from="TopSection/Tabs/MapTab" to="." method="_on_map_tab_input_event"]
+[connection signal="input_event" from="TopSection/Tabs/Vote" to="." method="_on_vote_input_event"]
