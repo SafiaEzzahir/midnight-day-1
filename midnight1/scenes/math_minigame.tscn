@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpwt7v4n1nwdq"]
 
-[ext_resource type="Script" uid="uid://crbge1iyfraiu" path="res://scenes/math_minigame.gd" id="1_q5oua"]
-[ext_resource type="Texture2D" uid="uid://bc5kgnu7bql5u" path="res://scenes/tick_image.png" id="2_a028q"]
-[ext_resource type="Texture2D" uid="uid://deyfr0yio4gsp" path="res://scenes/cross_image.png" id="3_0qbn2"]
+[ext_resource type="Script" path="res://scenes/math_minigame.gd" id="1_q5oua"]
+[ext_resource type="Texture2D" uid="uid://bc5kgnu7bql5u" path="res://Scenes/tick_image.png" id="2_a028q"]
+[ext_resource type="Texture2D" uid="uid://deyfr0yio4gsp" path="res://Scenes/cross_image.png" id="3_0qbn2"]
 
 [sub_resource type="Gradient" id="Gradient_q5oua"]
 offsets = PackedFloat32Array(0, 0.07333332)

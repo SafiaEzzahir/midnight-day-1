@@ -14,6 +14,7 @@ config/name="midnight1"
 run/main_scene="uid://c51kr7b0t1pyt"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
+"<<<<<<<Updatedupstream<<<<<<<Updatedupstream<<<<<<<Updatedupstream[autoload]Static"="*res://scenes/Static.gd"
 
 [autoload]
 
@@ -22,7 +23,6 @@ Static="*res://scenes/Static.gd"
 [display]
 
 window/size/mode=2
-window/size/resizable=false
 window/stretch/mode="viewport"
 
 [editor_plugins]
