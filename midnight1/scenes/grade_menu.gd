@@ -7,4 +7,4 @@ func notify_names():
 	print("yo!")
 	$ItemList.clear()
 	for item in (get_node("/root/Static").names as Dictionary).values():
-		$ItemList.add_item(item)
+		$ItemList.add_item(str(item) + ": " + get_node('/root/Static').grade())

@@ -23,6 +23,7 @@ Static="*res://scenes/Static.gd"
 [display]
 
 window/size/mode=2
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [editor_plugins]
