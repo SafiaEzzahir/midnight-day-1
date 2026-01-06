@@ -4,7 +4,7 @@ var currentpage = null
 var pagename = ""
 
 const TasksPage = preload("res://Scenes/MainInterface/TasksPage.tscn")
-const GradesPage = preload("res://Scenes/MainInterface/grades_page.tscn")
+const GradesPage = preload("res://Scenes/grade_menu.tscn")
 const MapPage = preload("res://Scenes/MainInterface/Map_Page.tscn")
 
 signal ChangeTaskImg
