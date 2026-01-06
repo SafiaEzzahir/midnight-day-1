@@ -21,14 +21,12 @@ extends Node2D
 @onready var Blank7 = $Blank7
 @onready var Blank8 = $Blank8
 
-# --- Jar Positions ---
 var jar1Place1; var jar1Place2; var jar1Place3; var jar1Place4
 var jar2Place1; var jar2Place2; var jar2Place3; var jar2Place4
 var jar3Place1; var jar3Place2; var jar3Place3; var jar3Place4
 var jar4Place1; var jar4Place2; var jar4Place3; var jar4Place4
 var jar5Place1; var jar5Place2; var jar5Place3; var jar5Place4
 
-# --- Jar Ball Storage ---
 var jar_balls = {
 	1: [],
 	2: [],
@@ -77,7 +75,6 @@ func start():
 
 	match colour:
 		"green":
-
 			jar_balls[1] = [GreenBall1, GreenBall2, OrangeBall1, OrangeBall2]
 			jar_balls[2] = [OrangeBall3, BlueBall1, BlueBall2, GreenBall3]
 			jar_balls[3] = [BlueBall3, BlueBall4, GreenBall4, OrangeBall4]
@@ -150,18 +147,25 @@ func get_clicked_jar(mouse_x):
 
 func check_success():
 	if not has_started or has_won:
-		return false  
+		return false
 
-	for jar in [1, 2, 3]:
+	for jar in jar_balls.keys():
+		if jar_balls[jar].is_empty():
+			continue 
+
 		if jar_balls[jar].size() != 4:
 			return false
-		var first_colour = jar_balls[jar][0].name.substr(0, jar_balls[jar][0].name.find("Ball"))
+
+		var first_colour = jar_balls[jar][0].name.substr(
+			0, jar_balls[jar][0].name.find("Ball")
+		)
+
 		for ball in jar_balls[jar]:
 			var colour = ball.name.substr(0, ball.name.find("Ball"))
 			if colour != first_colour:
 				return false
 
 	print("Success!")
-	$WinLogo.show() 
+	$WinLogo.show()
 	has_won = true
 	return true
