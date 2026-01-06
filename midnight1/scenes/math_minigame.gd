@@ -40,8 +40,9 @@ func questions():
 		DivideNum2.text =str(randi_range(2,12))
 
 func _process(delta: float) -> void:
-	if times_correct && divide_correct && plus_correct &&minus_correct:
+	if times_correct && divide_correct && plus_correct && minus_correct:
 		get_tree().change_scene_to_file("res://scenes/grade_up.tscn")
+		
 
 func _on_times_input_text_changed() -> void:
 	if int(TimesNum1.text) * int(TimesNum2.text) == int(TimesInput.text):

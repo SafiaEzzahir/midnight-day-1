@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddyea4em4016o"
-path="res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"
+uid="uid://cqchdsv3ijsta"
+path="res://.godot/imported/mitcampus.jpg-f0a9bd7c9562d8f02599ae5f713fe434.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/blue_ball.png"
-dest_files=["res://.godot/imported/blue_ball.png-7df8a10d9f728bb28dc2f59a208bb5fe.ctex"]
+source_file="res://scenes/mitcampus.jpg"
+dest_files=["res://.godot/imported/mitcampus.jpg-f0a9bd7c9562d8f02599ae5f713fe434.ctex"]
 
 [params]
 

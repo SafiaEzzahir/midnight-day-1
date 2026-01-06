@@ -70,4 +70,5 @@ theme_override_colors/font_color = Color(0.8509804, 0.015686275, 0.015686275, 1)
 theme_override_font_sizes/font_size = 25
 text = "Disconnected"
 
+[connection signal="button_down" from="PlayButton" to="." method="_on_play_button_button_down"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]

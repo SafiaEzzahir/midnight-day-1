@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqqsv3dg7ntk"]
+
+[ext_resource type="Texture2D" uid="uid://cqchdsv3ijsta" path="res://scenes/mitcampus.jpg" id="1_glvum"]
+[ext_resource type="Script" uid="uid://dd1ovv2gnupdq" path="res://scenes/murderer.gd" id="1_tysl3"]
+[ext_resource type="PackedScene" uid="uid://ynb5hetooiat" path="res://scenes/arrow.tscn" id="3_tysl3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tysl3"]
+radius = 24.0
+
+[node name="Murderer" type="Node2D"]
+script = ExtResource("1_tysl3")
+
+[node name="Mitcampus" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_glvum")
+
+[node name="Arrow" parent="." instance=ExtResource("3_tysl3")]
+position = Vector2(543, 231)
+
+[node name="Area2D" parent="Arrow" index="1"]
+visible = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" parent="Arrow/Area2D" index="0"]
+visible = false
+
+[node name="MurderShow" type="Label" parent="Arrow"]
+visible = false
+offset_left = -59.0
+offset_top = 29.0
+offset_right = 79.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+text = "press enter to murder"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Arrow"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arrow/CharacterBody2D"]
+shape = SubResource("CircleShape2D_tysl3")
+
+[node name="Targets" type="Node2D" parent="."]
+
+[connection signal="has_target" from="Arrow" to="." method="_on_arrow_has_target"]
+[connection signal="area_entered" from="Arrow/Area2D" to="Arrow" method="_on_area_2d_area_entered"]
+
+[editable path="Arrow"]
