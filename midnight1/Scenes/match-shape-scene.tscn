@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b40pl1mfi6x7h" path="res://Scripts/match-shape-scene.gd" id="1_tigrs"]
 [ext_resource type="Script" uid="uid://h0iuckepll20" path="res://Scenes/drawer.gd" id="2_er7w1"]
-[ext_resource type="Texture2D" uid="uid://c1vrphvqlnted" path="res://icon.svg" id="2_l0t2w"]
 [ext_resource type="PackedScene" uid="uid://d4l6uovpmqytb" path="res://Scenes/Letters/LetterH.tscn" id="2_ras2p"]
+[ext_resource type="Texture2D" uid="uid://cr58ulevk0ige" path="res://Assets/blu.png" id="4_ras2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_er7w1"]
 size = Vector2(52, 49)
@@ -24,8 +24,8 @@ collision_mask = 3
 script = ExtResource("2_er7w1")
 
 [node name="Sprite2D" type="Sprite2D" parent="Drawer"]
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_l0t2w")
+scale = Vector2(2, 2)
+texture = ExtResource("4_ras2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Drawer"]
 position = Vector2(-1, 0)
@@ -38,4 +38,5 @@ offset_right = 1161.0
 offset_bottom = 657.0
 expand_mode = 1
 
+[connection signal="reset" from="." to="LetterH" method="_on_match_shape_scene_reset"]
 [connection signal="area_exited" from="LetterH" to="." method="_on_letter_h_area_exited"]
