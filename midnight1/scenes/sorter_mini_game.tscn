@@ -290,4 +290,4 @@ texture = SubResource("CompressedTexture2D_7d00n")
 expand_mode = 1
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(1054, 320)
+position = Vector2(1152, 344)
