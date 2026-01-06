@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtxpxukab52pq"]
+[gd_scene load_steps=8 format=3 uid="uid://dtxpxukab52pq"]
 
 [ext_resource type="Texture2D" uid="uid://qbsyvahw2yce" path="res://scenes/white_square.png" id="1_5xl23"]
 [ext_resource type="Script" uid="uid://bi5vk1vkk8rj" path="res://scenes/sorter_mini_game.gd" id="1_xlmuj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cpva4dy04lwv4" path="res://scenes/green_ball.png" id="3_tkbo8"]
 [ext_resource type="Texture2D" uid="uid://c6ybrmtpex0g2" path="res://scenes/orange_ball.png" id="5_6gwci"]
 [ext_resource type="Texture2D" uid="uid://ddyea4em4016o" path="res://scenes/blue_ball.png" id="6_ljoyk"]
+[ext_resource type="Texture2D" uid="uid://dd8qo40a5ggjv" path="res://Assets/WinLogo.png" id="7_6gwci"]
 
 [node name="SorterMiniGame" type="Node2D"]
 script = ExtResource("1_xlmuj")
@@ -145,6 +146,12 @@ offset_right = 598.0
 offset_bottom = 352.0
 texture = ExtResource("6_ljoyk")
 expand_mode = 1
+
+[node name="WinLogo" type="TextureRect" parent="."]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("7_6gwci")
 
 [node name="Blank1" type="TextureRect" parent="."]
 visible = false

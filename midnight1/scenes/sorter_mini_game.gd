@@ -37,6 +37,8 @@ var jar_balls = {
 
 var select_next = false
 var selected_jar = -1
+var has_started = false
+var has_won = false
 
 func _ready():
 
@@ -71,74 +73,32 @@ func start():
 	var coloursList = ["green", "blue", "orange"]
 	var colour = coloursList[randi() % coloursList.size()]
 
-	if colour == "green":
+	match colour:
+		"green":
+			jar_balls[1] = [GreenBall1, GreenBall2, OrangeBall1, OrangeBall2]
+			jar_balls[2] = [OrangeBall3, BlueBall1, BlueBall2, GreenBall3]
+			jar_balls[3] = [BlueBall3, BlueBall4, GreenBall4, OrangeBall4]
+		"blue":
+			jar_balls[1] = [BlueBall1, BlueBall2, GreenBall1, GreenBall2]
+			jar_balls[2] = [GreenBall3, OrangeBall1, OrangeBall2, BlueBall3]
+			jar_balls[3] = [OrangeBall3, OrangeBall4, BlueBall4, GreenBall4]
+		"orange":
+			jar_balls[1] = [OrangeBall1, OrangeBall2, BlueBall1, BlueBall2]
+			jar_balls[2] = [BlueBall3, GreenBall1, OrangeBall3, GreenBall2]
+			jar_balls[3] = [GreenBall3, OrangeBall4, GreenBall4, BlueBall4]
 
-		GreenBall1.position = jar1Place1
-		GreenBall2.position = jar1Place2
-		OrangeBall1.position = jar1Place3
-		OrangeBall2.position = jar1Place4
+	jar_balls[4] = []
+	jar_balls[5] = []
 
-		OrangeBall3.position = jar2Place1
-		BlueBall1.position = jar2Place2
-		BlueBall2.position = jar2Place3
-		GreenBall3.position = jar2Place4
-
-		BlueBall3.position = jar3Place1
-		BlueBall4.position = jar3Place2
-		GreenBall4.position = jar3Place3
-
-		jar_balls[1] = [GreenBall1, GreenBall2, OrangeBall1, OrangeBall2]
-		jar_balls[2] = [OrangeBall3, BlueBall1, BlueBall2, GreenBall3]
-		jar_balls[3] = [BlueBall3, BlueBall4, GreenBall4]
-		jar_balls[4] = []
-		jar_balls[5] = []
-
-	elif colour == "blue":
-		BlueBall1.position = jar1Place1
-		BlueBall2.position = jar1Place2
-		GreenBall1.position = jar1Place3
-		GreenBall2.position = jar1Place4
-
-		GreenBall3.position = jar2Place1
-		OrangeBall1.position = jar2Place2
-		OrangeBall2.position = jar2Place3
-		BlueBall3.position = jar2Place4
-
-		OrangeBall3.position = jar3Place1
-		OrangeBall4.position = jar3Place2
-		BlueBall4.position = jar3Place3
-		GreenBall4.position = jar3Place4
-
-		jar_balls[1] = [BlueBall1, BlueBall2, GreenBall1, GreenBall2]
-		jar_balls[2] = [GreenBall3, OrangeBall1, OrangeBall2, BlueBall3]
-		jar_balls[3] = [OrangeBall3, OrangeBall4, BlueBall4, GreenBall4]
-		jar_balls[4] = []
-		jar_balls[5] = []
-
-	else:
-		OrangeBall1.position = jar1Place1
-		OrangeBall2.position = jar1Place2
-		BlueBall1.position = jar1Place3
-		BlueBall2.position = jar1Place4
-
-		BlueBall3.position = jar2Place1
-		GreenBall1.position = jar2Place2
-		OrangeBall3.position = jar2Place3
-		GreenBall2.position = jar2Place4
-
-		GreenBall3.position = jar3Place1
-		OrangeBall4.position = jar3Place2
-		GreenBall4.position = jar3Place3
-		BlueBall4.position = jar3Place4
-
-		jar_balls[1] = [OrangeBall1, OrangeBall2, BlueBall1, BlueBall2]
-		jar_balls[2] = [BlueBall3, GreenBall1, OrangeBall3, GreenBall2]
-		jar_balls[3] = [GreenBall3, OrangeBall4, GreenBall4, BlueBall4]
-		jar_balls[4] = []
-		jar_balls[5] = []
+	for jar in jar_balls.keys():
+		for i in range(jar_balls[jar].size()):
+			jar_balls[jar][i].position = get_jar_position(jar, i + 1)
 
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
+		if not has_started:
+			has_started = true  
+
 		var jar = get_clicked_jar(event.global_position.x)
 		if jar == -1:
 			return
@@ -156,12 +116,11 @@ func move_ball(from_jar, to_jar):
 	if jar_balls[to_jar].size() >= 4:
 		return
 
-	var ball = jar_balls[from_jar].pop_back() 
-	jar_balls[to_jar].append(ball)   
+	var ball = jar_balls[from_jar].pop_back()
+	jar_balls[to_jar].append(ball)
 
-	var pos = get_jar_position(to_jar, jar_balls[to_jar].size())
-	ball.position = pos
-	
+	ball.position = get_jar_position(to_jar, jar_balls[to_jar].size())
+
 	check_success()
 
 func get_jar_position(jar, height):
@@ -171,7 +130,6 @@ func get_jar_position(jar, height):
 		3: return [jar3Place1, jar3Place2, jar3Place3, jar3Place4][height - 1]
 		4: return [jar4Place1, jar4Place2, jar4Place3, jar4Place4][height - 1]
 		5: return [jar5Place1, jar5Place2, jar5Place3, jar5Place4][height - 1]
-
 	return Vector2.ZERO
 
 func get_clicked_jar(mouse_x):
@@ -188,13 +146,26 @@ func get_clicked_jar(mouse_x):
 	return -1
 
 func check_success():
-	for jar in [1, 2, 3]: # only the main jars
+	if not has_started or has_won:
+		return false
+
+	for jar in jar_balls.keys():
 		if jar_balls[jar].is_empty():
+			continue 
+
+		if jar_balls[jar].size() != 4:
 			return false
-		var first_colour = jar_balls[jar][0].name.substr(0, jar_balls[jar][0].name.find("Ball"))
+
+		var first_colour = jar_balls[jar][0].name.substr(
+			0, jar_balls[jar][0].name.find("Ball")
+		)
+
 		for ball in jar_balls[jar]:
 			var colour = ball.name.substr(0, ball.name.find("Ball"))
 			if colour != first_colour:
 				return false
+
 	print("Success!")
+	$WinLogo.show()
+	has_won = true
 	return true
