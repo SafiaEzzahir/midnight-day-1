@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0ukusnp1idwc"]
+[gd_scene load_steps=4 format=3 uid="uid://0ukusnp1idwc"]
 
 [ext_resource type="Script" uid="uid://cxi4bnucs1c6k" path="res://scenes/grade_menu.gd" id="1_174ub"]
 [ext_resource type="Texture2D" uid="uid://ctmaij1f6528o" path="res://scenes/black_square.png" id="1_ogrh0"]
+[ext_resource type="Texture2D" uid="uid://bymajmm6tux7u" path="res://scenes/back_arrow.png" id="3_vh7oc"]
 
 [node name="GradeMenu" type="Node2D"]
 script = ExtResource("1_174ub")
@@ -38,3 +39,9 @@ item_0/text = "Player1: "
 item_1/text = "Player2:"
 item_2/text = "Player3:"
 item_3/text = "Player4:"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("3_vh7oc")
+expand_mode = 1
