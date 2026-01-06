@@ -8,6 +8,3 @@ func notify_names():
 	$ItemList.clear()
 	for item in (get_node("/root/Static").names as Dictionary).values():
 		$ItemList.add_item(item)
-
-func _process(delta: float) -> void:
-	pass
