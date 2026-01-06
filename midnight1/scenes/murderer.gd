@@ -17,13 +17,25 @@ var size = 400
 
 func _process(delta: float) -> void:
 	if(Input.is_action_pressed("down")):
-		$Arrow.position.y += delta * size
+		if $Arrow.position.y <= 648:
+			$Arrow.position.y += delta * size
+		else:
+			$Arrow.position.y = 648
 	if(Input.is_action_pressed("up")):
-		$Arrow.position.y -= delta * size
+		if $Arrow.position.y >= 0:
+			$Arrow.position.y -= delta * size
+		else:
+			$Arrow.position.y = 0
 	if(Input.is_action_pressed("left")):
-		$Arrow.position.x -= delta * size
+		if $Arrow.position.x >= 0:
+			$Arrow.position.x -= delta * size
+		else:
+			$Arrow.position.x = 0
 	if(Input.is_action_pressed("right")):
-		$Arrow.position.x += delta * size
+		if $Arrow.position.x <= 1152:
+			$Arrow.position.x += delta * size
+		else:
+			$Arrow.position.x = 1152
 		
 	if(Input.is_action_pressed("enter") && target != null):
 		get_node("/root/Static").send_kill(target.uuid)
