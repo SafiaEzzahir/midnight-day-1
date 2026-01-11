@@ -1,6 +1,6 @@
 extends Node
 
-@export var websocket_url = "ws://localhost:9001"
+@export var websocket_url = "wss://foxmoss.com:9004"
 
 var socket = WebSocketPeer.new()
 
