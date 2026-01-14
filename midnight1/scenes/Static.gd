@@ -139,6 +139,8 @@ func _process(_delta):
 								if votes[vote] == max_vote_count:
 									max_uuid = vote
 							send_kill(max_uuid)
+							if(!is_dead):
+								get_tree().change_scene_to_file("res://Scenes/MainInterface/HomePage.tscn")
 				if(packet_data["type"] == "end_game" && !is_dead):
 					get_tree().change_scene_to_file("res://scenes/imposter.tscn")
 			else:
